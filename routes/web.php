@@ -138,18 +138,23 @@ Route::delete('/dashboard/fasilitas/delete/{id}', [FasilitasController::class, '
 Route::get('/dashboard/fasilitas/foto/delete/{id}/{fasilitas_id}', [FasilitasController::class, 'destroyFoto'])->middleware('auth')->can('admin');
 Route::post('/dashboard/fasilitas/foto/store', [FasilitasController::class, 'storeFoto'])->middleware('auth')->can('admin');
 
-// fasilitass
-Route::get('/profil/fasilitas/lab-ai', function () {
-  return view('home.fasilitas');
-});
-//
-
-Route::get('/profil/fasilitas/{id}', [FasilitasController::class, 'detailFasilitas']);
 
 // INI HARUS BAGIAN BAWAH BIAR TIDAK MENIMPA
 // news
 Route::get('/news/{kategory}', [NewsController::class, 'index'])->name('list-news');
 Route::get('/news/{kategory}/{slug}', [NewsController::class, 'newsDetail']);
+
+//pengumuman
+Route::get('/pengumuman/{kategory}', [NewsController::class, 'pengumuman'])->name('list-announcement');
+
+//aktivitas
+Route::get('/aktivitas/{kategory}', [NewsController::class, 'aktivitas'])->name('list-activity');
+
+//sarana umum
+Route::get('/sarana_umum/{id}', [FasilitasController::class, 'detailFasilitas']);
+
+//artikel
+Route::get('/artikel/{kategory}', [NewsController::class, 'artikel'])->name('list-artikel');
 
 // prestasi
 Route::get('/prestasi/{prestasi:slug}', [PrestasiController::class, 'prestasiDetail']);

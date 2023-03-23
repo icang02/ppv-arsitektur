@@ -61,12 +61,12 @@ class NewsSeeder extends Seeder
         //     'views' => 888,
         // ]);
 
-        $kategory = ['event', 'informasi', 'pengumuman', 'greenmetric'];
+        $kategory = ['berita', 'pengumuman', 'agenda', 'greenmetric', 'jadwal_ujian', 'seminar', 'kuliah_umum', 'kegiatan_mahasiswa', 'ekstrakulikuler', 'kegiatan_kampus', 'jurnal', 'sda'];
         for ($i = 0; $i < 100; $i++) {
             News::create([
                 'title' => fake()->sentence(),
                 'slug' => uniqid() . fake()->sentence(),
-                'kategory' => $kategory[rand(0, 3)],
+                'kategory' => $kategory[rand(0, 11)],
                 'date' => fake()->date(),
                 'image' => null,
                 'content' => fake()->paragraph(rand(5, 10)),

@@ -31,6 +31,17 @@ class NewsController extends Controller
         ]);
     }
 
+    public function pengumuman($kategory)
+    {
+        $data = News::where('kategory', $kategory)->paginate(8);
+        // dd($data);
+        return view('home.list-news', [
+            'news' => $data,
+            'kategory' => $kategory
+        ]);
+    }
+
+
     public function news()
     {
         // if (request()->is('dashboard/news/informasi*')) {
