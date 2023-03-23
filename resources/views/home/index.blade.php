@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('main-content')
+@section('main-contents')
     <!-- Carousel Start -->
     @include('home.components.carousel')
     <!-- Carousel End -->

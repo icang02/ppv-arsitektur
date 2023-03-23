@@ -47,7 +47,7 @@
     <!-- Navbar End -->
 
 
-    @yield('main-content')
+    @yield('main-contents')
 
 
     <!-- Footer Start -->
