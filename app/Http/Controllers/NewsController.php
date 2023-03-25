@@ -14,7 +14,8 @@ class NewsController extends Controller
         // dd($data);
         return view('home.list-news', [
             'news' => $data,
-            'kategory' => $kategory
+            'kategory' => $kategory,
+            'menu' => 'berita'
         ]);
     }
 
@@ -37,7 +38,8 @@ class NewsController extends Controller
         // dd($data);
         return view('home.list-news', [
             'news' => $data,
-            'kategory' => $kategory
+            'kategory' => $kategory,
+            'menu' => 'pengumuman'
         ]);
     }
 

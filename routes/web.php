@@ -141,8 +141,8 @@ Route::post('/dashboard/fasilitas/foto/store', [FasilitasController::class, 'sto
 
 // INI HARUS BAGIAN BAWAH BIAR TIDAK MENIMPA
 // news
-Route::get('/news/{kategory}', [NewsController::class, 'index'])->name('list-news');
-Route::get('/news/{kategory}/{slug}', [NewsController::class, 'newsDetail']);
+Route::get('/berita/{kategory}', [NewsController::class, 'index'])->name('list-news');
+Route::get('/berita/{kategory}/{slug}', [NewsController::class, 'newsDetail']);
 
 //pengumuman
 Route::get('/pengumuman/{kategory}', [NewsController::class, 'pengumuman'])->name('list-announcement');

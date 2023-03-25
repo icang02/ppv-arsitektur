@@ -115,11 +115,11 @@
                     data-bs-toggle="dropdown">Berita</a>
                 <div class="dropdown-menu bg-light m-0">
                     <a href="{{ route('list-news', 'berita') }}"
-                        class="dropdown-item {{ request()->is('news/berita*') ? 'active' : '' }}">Berita</a>
+                        class="dropdown-item {{ request()->is('berita/berita*') ? 'active' : '' }}">Berita</a>
                     <a href="{{ route('list-news', 'pengumuman') }}"
-                        class="dropdown-item {{ request()->is('news/pengumuman*') ? 'active' : '' }}">Pengumuman</a>
+                        class="dropdown-item {{ request()->is('berita/pengumuman*') ? 'active' : '' }}">Pengumuman</a>
                     <a href="{{ route('list-news', 'agenda') }}"
-                        class="dropdown-item {{ request()->is('news/agenda*') ? 'active' : '' }}">Agenda</a>
+                        class="dropdown-item {{ request()->is('berita/agenda*') ? 'active' : '' }}">Agenda</a>
                 </div>
             </div>
 
