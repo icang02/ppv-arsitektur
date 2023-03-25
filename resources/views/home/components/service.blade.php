@@ -1,4 +1,4 @@
-<div class="container-xxl py-5">
+<div class="container p-5">
     <div class="container">
         <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <p class="fw-medium text-uppercase text-primary mb-2">Our Services</p>
@@ -6,7 +6,7 @@
         </div>
         <div class="row gy-5 gx-4">
             @for ($i = 0; $i < 8; $i++)
-                <div class="col-md-6 col-sm-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-md-6 col-sm-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item">
                         <img class="img-fluid" src="{{ asset('home-assets') }}/img/service-1.jpg" alt="">
                         <div class="service-img">

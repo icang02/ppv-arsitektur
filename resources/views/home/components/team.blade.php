@@ -1,4 +1,4 @@
-<div class="container-xxl py-5">
+<div class="container-xxl p-5">
     <div class="container">
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <p class="fw-medium text-uppercase text-primary mb-2">Our Team</p>

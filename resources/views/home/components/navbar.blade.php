@@ -3,21 +3,45 @@
     $akademik = App\Models\Menu::where('kategory', 'akademik')->get();
     $sarana = App\Models\Fasilitas::all();
 @endphp
-<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-0 pe-5">
-    <a href="index.html" class="navbar-brand ps-5 me-0">
-        <h1 class="text-white m-0">Industro</h1>
+<style>
+    .collapse .navbar-nav a {
+        font-size: 0.85rem !important;
+    }
+
+    .navbar-brand {
+        display: none !important;
+    }
+
+    @media only screen and (max-width: 576px) {
+        .navbar-brand {
+            display: flex !important;
+        }
+    }
+</style>
+
+{{-- Nav Desktop --}}
+<div class="w-100 px-5 py-3 border-bottom border-2 d-flex align-items-center justify-content-between">
+    <a href="{{ url('/') }}">
+        <img src="{{ url('https://arsitektur.ppv.uho.ac.id/img/logo-12.png') }}" alt="Logo" width="250">
+    </a>
+    <div class="w-25">
+        <select class="form-select form-select-sm">
+            <option value="">Indonesia</option>
+        </select>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-0 pe-4">
+    {{-- Nav Mobile --}}
+    <a href="index.html" class="navbar-brand ps-3 me-0">
+        <img src="{{ url('https://arsitektur.ppv.uho.ac.id/img/logo-12.png') }}" alt="Logo" width="250">
     </a>
     <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <style>
-        .collapse .navbar-nav a {
-            font-size: 0.85rem !important;
-        }
-    </style>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto p-1 p-lg-0">
+        <div class="navbar-nav mx-auto p-1 p-lg-0">
             <a href="{{ url('/') }}" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
 
             <div class="nav-item dropdown">
