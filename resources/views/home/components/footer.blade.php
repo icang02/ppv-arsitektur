@@ -1,4 +1,4 @@
-<div class="container-fluid bg-dark footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+<div class="container-fluid bg-dark footer py-5 wow fadeIn" data-wow-delay="0.1s" style="margin-top: 6rem !important;">
     <div class="container p-5">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">

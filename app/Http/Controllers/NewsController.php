@@ -10,7 +10,7 @@ class NewsController extends Controller
 {
     public function index($kategory)
     {
-        $data = News::where('kategory', $kategory)->paginate(8);
+        $data = News::where('kategory', $kategory)->paginate(9);
         // dd($data);
         return view('home.list-news', [
             'news' => $data,
@@ -34,7 +34,7 @@ class NewsController extends Controller
 
     public function pengumuman($kategory)
     {
-        $data = News::where('kategory', $kategory)->paginate(8);
+        $data = News::where('kategory', $kategory)->paginate(9);
         // dd($data);
         return view('home.list-news', [
             'news' => $data,
