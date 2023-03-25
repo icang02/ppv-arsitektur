@@ -21,7 +21,7 @@
     </div>
     <!-- Page Header End -->
 
-    <div class="container py-5 bg-white shadow-lg">
+    <div class="container p-5 bg-white shadow-lg">
         <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <p class="fw-medium text-uppercase text-primary mb-2">{{ Str::ucfirst($menu->kategory) }}</p>
             <h1 class="display-5 mb-5" style="font-size: 2.5rem;">{{ $menu->title }}</h1>

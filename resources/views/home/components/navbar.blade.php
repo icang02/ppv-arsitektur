@@ -20,7 +20,7 @@
 </style>
 
 {{-- Nav Desktop --}}
-<div class="w-100 px-5 py-3 border-bottom border-2 d-flex align-items-center justify-content-between">
+<div class="bg-white w-100 px-5 py-3 border-bottom border-2 d-flex align-items-center justify-content-between">
     <a href="{{ url('/') }}">
         <img src="{{ url('https://arsitektur.ppv.uho.ac.id/img/logo-12.png') }}" alt="Logo" width="250">
     </a>
