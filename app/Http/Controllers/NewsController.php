@@ -23,12 +23,13 @@ class NewsController extends Controller
     {
         $data = News::where('slug', $slug)->firstOrFail();
         $data->increment('views');
-        $allnews = News::orderBy('date', 'desc')->take(4)->get();
+        $allnews = News::where('kategory', $kategory)->orderBy('date', 'desc')->take(4)->get();
 
-        // dd($data, $allnews);  
+        // dd($data);  
         return view('home.detail-news', [
             'news' => $data,
-            'allnews' => $allnews
+            'allnews' => $allnews,
+            'kategori' => str()->title($kategory),
         ]);
     }
 
