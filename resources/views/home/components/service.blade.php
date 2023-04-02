@@ -9,7 +9,9 @@
                 <div class="col-md-6 col-sm-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item"
                         style="border-style: solid; border-top-color: rgba(2,36,91,.4); border-right-color: rgb(2,36,91,.4); border-left-color: rgba(255,94,20,.4); border-bottom-color: rgba(255,94,20,.4);">
-                        <img class="img-fluid" src="{{ asset('home-assets/img/feature.jpg') }}" alt="">
+                        <img class="img-fluid"
+                            src="{{ url('https://ti.eng.uho.ac.id/uploads/lectures/photos/Lectures__1662651554.jpg') }}"
+                            alt="">
                         <div class="service-img">
                             <div
                                 style="width: 100%; height: 100%; background-size: cover; background-position: center; background-image: url({{ url('https://ti.eng.uho.ac.id/uploads/lectures/photos/Lectures__1662651554.jpg') }})">

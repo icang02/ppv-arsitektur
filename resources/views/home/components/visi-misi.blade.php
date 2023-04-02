@@ -12,27 +12,20 @@
                 </div>
             </div>
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                <p class="fw-medium text-uppercase text-primary mb-2">About Us</p>
-                <h1 class="display-5 mb-4" style="font-size: 2.5rem;">We Are Leader In Industrial Market</h1>
-                <p class="mb-4" style="font-size: 0.85rem;">Tempor erat elitr rebum at clita. Diam dolor diam ipsum
-                    sit.
-                    Aliqu diam amet diam et
-                    eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet
-                </p>
-                <div class="d-flex align-items-center mb-4">
-                    <div class="flex-shrink-0 bg-primary p-4">
-                        <h1 class="display-2">25</h1>
-                        <h5 class="text-white">Years of</h5>
-                        <h5 class="text-white">Experience</h5>
+                <p class="fw-medium text-uppercase text-primary mb-2">D-III Teknik Arsitektur</p>
+                <h1 class="display-5 mb-4" style="font-size: 2.5rem;">Visi - Misi</h1>
+                @foreach ($visimisi as $vm)
+                    <div class="d-flex mb-3">
+                        <div class="flex-shrink-0 btn-square rounded-circle bg-primary">
+                            <i class="fa fa-star text-white" style="font-size: 0.8rem;"></i>
+                        </div>
+                        <div class="ms-4">
+                            <h4 style="font-size: 1.25rem;">{{ $vm->title }}</h4>
+                            <p style="font-size: 0.9rem; text-align: justify !important;">{!! $vm->content !!}</p>
+                        </div>
                     </div>
-                    <div class="ms-4">
-                        <p><i class="fa fa-check text-primary me-2"></i>Power & Energy</p>
-                        <p><i class="fa fa-check text-primary me-2"></i>Civil Engineering</p>
-                        <p><i class="fa fa-check text-primary me-2"></i>Chemical Engineering</p>
-                        <p><i class="fa fa-check text-primary me-2"></i>Mechanical Engineering</p>
-                        <p class="mb-0"><i class="fa fa-check text-primary me-2"></i>Oil & Gas Engineering</p>
-                    </div>
-                </div>
+                @endforeach
+
                 {{-- <div class="row pt-2">
                     <div class="col-sm-6">
                         <div class="d-flex align-items-center">

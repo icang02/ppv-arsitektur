@@ -50,7 +50,7 @@
                                 <a href="{{ url('/dashboard/direktur') }}"
                                     class="nav-link {{ request()->is('dashboard/direktur') ? 'active' : '' }}">
                                     <i class="far fa-user nav-icon"></i>
-                                    <p>Direktur</p>
+                                    <p>Pimpinan</p>
                                 </a>
                             </li>
                             <li class="nav-item">

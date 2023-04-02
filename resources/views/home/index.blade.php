@@ -2,18 +2,18 @@
 
 @section('main-contents')
     <!-- Carousel Start -->
-    @include('home.components.carousel')
+    @include('home.components.slider', ['silders' => $sliders])
     <!-- Carousel End -->
 
 
     <!-- Team Start -->
-    @include('home.components.team')
+    @include('home.components.kaprodi', ['kaprodi' => $direktur])
     <!-- Team End -->
 
 
     <!-- About Start -->
     <div style="margin: 0rem 0 6rem 0 !important;">
-        @include('home.components.about')
+        @include('home.components.visi-misi', ['visimisi' => $visimisi])
     </div>
     <!-- About End -->
 
