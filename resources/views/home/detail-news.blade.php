@@ -102,7 +102,7 @@
 
             {{-- Berita lainnya --}}
             <div class="px-4 pt-5 pb-3 bg-white shadow-lg" id="berita-lainnya">
-                <h6 class="text-center">Berita Lainnya</h6>
+                <h6 class="text-center">Artikel Lainnya</h6>
                 <hr>
                 @foreach ($allnews as $news)
                     <div class="d-flex">

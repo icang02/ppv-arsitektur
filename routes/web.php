@@ -160,15 +160,18 @@ Route::get('/berita/{kategory}/{slug}', [NewsController::class, 'newsDetail']);
 
 //pengumuman
 Route::get('/pengumuman/{kategory}', [NewsController::class, 'indexPengumuman'])->name('list-announcement');
+Route::get('/pengumuman/{kategory}/{slug}', [NewsController::class, 'pengumumanDetail']);
 
 //aktivitas
 Route::get('/aktivitas/{kategory}', [NewsController::class, 'indexAktivitas'])->name('list-activity');
+Route::get('/aktivitas/{kategory}/{slug}', [NewsController::class, 'aktivitasDetail']);
 
 //sarana umum
 Route::get('/sarana_umum/{id}', [FasilitasController::class, 'detailFasilitas']);
 
 //artikel
-Route::get('/artikel/{kategory}', [NewsController::class, 'artikel'])->name('list-artikel');
+Route::get('/artikel/{kategory}', [NewsController::class, 'indexArtikel'])->name('list-artikel');
+Route::get('/artikel/{kategory}/{slug}', [NewsController::class, 'artikelDetail']);
 
 // prestasi
 Route::get('/prestasi/{prestasi:slug}', [PrestasiController::class, 'prestasiDetail']);

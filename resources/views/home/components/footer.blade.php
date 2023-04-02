@@ -1,14 +1,40 @@
-<div class="container-fluid bg-dark footer py-5 wow fadeIn" data-wow-delay="0.1s" style="margin-top: 6rem !important;">
-    <div class="container p-5">
-        <div class="row g-5">
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-white mb-4" style="font-size: 1rem;">Our Office</h5>
-                <p class="mb-2" style="font-size: 0.85rem;"><i class="fa fa-map-marker-alt me-3"></i>123
-                    Street, New
-                    York, USA</p>
-                <p class="mb-2" style="font-size: 0.85rem;"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                <p class="mb-2" style="font-size: 0.85rem;"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                <div class="d-flex pt-3">
+<div class="container-fluid bg-dark footer pt-5 pb-3 wow fadeIn" data-wow-delay="0.1s"
+    style="margin-top: 6rem !important;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="mb-3">
+                    <center>
+                        <img src="{{ asset('home-assets/img/logo-uho.png') }}" width="150" class="mx-auto"
+                            alt="Universitas Haluoleo">
+                    </center>
+                </div>
+                <h5 class="text-white text-center" style="font-size: 1rem;">DII TEKNIK ARSITEKTUR <br>PPV UHO</h5>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-3">
+                <h5 class="text-white mb-4" style="font-size: 1rem;">TENTANG SITUS</h5>
+                <a class="btn btn-link" href="{{ url('/') }}" style="font-size: 0.85rem;">Home</a>
+                <a class="btn btn-link" href="{{ url('/berita/berita') }}" style="font-size: 0.85rem;">Berita</a>
+                <a class="btn btn-link" href="{{ url('https://siakadbeta.uho.ac.id') }}"
+                    style="font-size: 0.85rem;">Siakad Beta UHO</a>
+                <a class="btn btn-link" href="{{ url('http://e-green.uho.ac.id/') }}" style="font-size: 0.85rem;">SPADA
+                    UHO</a>
+                <a class="btn btn-link" href="{{ url('https://uho.ac.id/') }}" style="font-size: 0.85rem;">Universitas
+                    Halu Oleo</a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-3">
+                <h5 class="text-white mb-4" style="font-size: 1rem;">HUBUNGI KAMI</h5>
+                <p class="mb-2" style="font-size: 0.85rem;"><i class="fa fa-map-marker-alt me-3"></i>Prodi Arsitektur
+                    <br>
+                    Program Pendidikan Vokasi <br>
+                    Kampus Hijau Bumi Tridharma, Anduonohu
+                    Kendari - Indonesia 93232</p>
+                <p class="mb-2" style="font-size: 0.85rem;"><i class="fa fa-phone-alt me-3"></i>0821-9219-5800</p>
+                <p class="mb-2" style="font-size: 0.85rem;"><i class="fa fa-envelope me-3"></i>d3arsitektur@uho.ac.id
+                </p>
+                {{-- <div class="d-flex pt-3">
                     <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i
@@ -17,34 +43,17 @@
                             class="fab fa-youtube"></i></a>
                     <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i
                             class="fab fa-linkedin-in"></i></a>
-                </div>
+                </div> --}}
             </div>
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-white mb-4" style="font-size: 1rem;">Quick Links</h5>
-                <a class="btn btn-link" href="" style="font-size: 0.85rem;">About Us</a>
-                <a class="btn btn-link" href="" style="font-size: 0.85rem;">Contact Us</a>
-                <a class="btn btn-link" href="" style="font-size: 0.85rem;">Our Services</a>
-                <a class="btn btn-link" href="" style="font-size: 0.85rem;">Terms & Condition</a>
-                <a class="btn btn-link" href="" style="font-size: 0.85rem;">Support</a>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-white mb-4" style="font-size: 1rem;">Business Hours</h5>
-                <p class="mb-1" style="font-size: 0.85rem;">Monday - Friday</p>
-                <h6 class="text-light" style="font-size: 0.85rem;">09:00 am - 07:00 pm</h6>
-                <p class="mb-1" style="font-size: 0.85rem;">Saturday</p>
-                <h6 class="text-light" style="font-size: 0.85rem;">09:00 am - 12:00 pm</h6>
-                <p class="mb-1" style="font-size: 0.85rem;">Sunday</p>
-                <h6 class="text-light" style="font-size: 0.85rem;">Closed</h6>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-white mb-4" style="font-size: 1rem;">Newsletter</h5>
-                <p style="font-size: 0.85rem;">Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                <div class="position-relative w-100">
-                    <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text"
-                        placeholder="Your email" style="font-size: 0.85rem;">
-                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"
-                        style="font-size: 0.85rem;">SignUp</button>
-                </div>
+
+            <div class="col-lg-3 col-md-6 mb-3">
+                <center>
+                    <div class="mapouter">
+                        <div class="gmap_canvas"><iframe width="250" height="200" id="gmap_canvas"
+                                src="https://maps.google.com/maps?q=fakultas%20vokasi%20uho&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
+                    </div>
+                </center>
             </div>
         </div>
     </div>

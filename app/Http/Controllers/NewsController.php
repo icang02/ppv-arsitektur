@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
+    //HALAMAN DEPAN
     public function index($kategory)
     {
         $data = News::where('kategory', $kategory)->paginate(9);
@@ -23,7 +24,7 @@ class NewsController extends Controller
     {
         $data = News::where('slug', $slug)->firstOrFail();
         $data->increment('views');
-        $allnews = News::where('kategory', $kategory)->orderBy('date', 'desc')->take(4)->get();
+        $allnews = News::whereIn('kategory', ['berita','pengumuman','agenda'])->orderBy('date', 'desc')->take(4)->get();
 
         // dd($data);  
         return view('home.detail-news', [
@@ -43,6 +44,72 @@ class NewsController extends Controller
             'menu' => 'pengumuman'
         ]);
     }
+
+    public function pengumumanDetail($kategory, $slug)
+    {
+        $data = News::where('slug', $slug)->firstOrFail();
+        $data->increment('views');
+        $allnews = News::whereIn('kategory', ['jadwal_ujian','seminar','kuliah_umum'])->orderBy('date', 'desc')->take(4)->get();
+
+        // dd($data);  
+        return view('home.detail-news', [
+            'news' => $data,
+            'allnews' => $allnews,
+            'kategori' => str()->title($kategory),
+        ]);
+    }
+
+    public function indexAktivitas($kategory)
+    {
+        $data = News::where('kategory', $kategory)->paginate(9);
+        // dd($data);
+        return view('home.list-news', [
+            'news' => $data,
+            'kategory' => $kategory,
+            'menu' => 'aktivitas'
+        ]);
+    }
+
+    public function aktivitasDetail($kategory, $slug)
+    {
+        $data = News::where('slug', $slug)->firstOrFail();
+        $data->increment('views');
+        $allnews = News::whereIn('kategory', ['kegiatan_mahasiswa','ekstrakulikuler','kegiatan_kampus'])->orderBy('date', 'desc')->take(4)->get();
+
+        // dd($data);  
+        return view('home.detail-news', [
+            'news' => $data,
+            'allnews' => $allnews,
+            'kategori' => str()->title($kategory),
+        ]);
+    }
+
+    public function indexArtikel($kategory)
+    {
+        $data = News::where('kategory', $kategory)->paginate(9);
+        // dd($data);
+        return view('home.list-news', [
+            'news' => $data,
+            'kategory' => $kategory,
+            'menu' => 'artikel'
+        ]);
+    }
+
+    public function artikelDetail($kategory, $slug)
+    {
+        $data = News::where('slug', $slug)->firstOrFail();
+        $data->increment('views');
+        $allnews = News::whereIn('kategory', ['jurnal', 'sda'])->orderBy('date', 'desc')->take(4)->get();
+
+        // dd($data);  
+        return view('home.detail-news', [
+            'news' => $data,
+            'allnews' => $allnews,
+            'kategori' => str()->title($kategory),
+        ]);
+    }
+
+    //HALAMAN DASHBOARD
 
     //dashboard berita
     public function news()
