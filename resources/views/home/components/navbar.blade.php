@@ -8,35 +8,45 @@
         font-size: 0.85rem !important;
     }
 
-    .navbar-brand {
-        display: none !important;
+    .g-translate {
+        width: 20%;
     }
 
     @media only screen and (max-width: 576px) {
-        .navbar-brand {
+        .nav-desktop {
             display: flex !important;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center !important;
+        }
+
+        .g-translate {
+            width: 50%;
+            margin: auto;
         }
     }
 </style>
 
 {{-- Nav Desktop --}}
-<div class="bg-white w-100 px-5 py-3 border-bottom border-2 d-flex align-items-center justify-content-between">
+<div
+    class="nav-desktop bg-white w-100 px-5 py-3 border-bottom border-2 d-flex align-items-center justify-content-between">
     <a href="{{ url('/') }}">
         <img src="{{ url('https://arsitektur.ppv.uho.ac.id/img/logo-12.png') }}" alt="Logo" width="250">
     </a>
-    <div class="w-25">
+    <div class="g-translate">
         <select class="form-select form-select-sm">
             <option value="">Indonesia</option>
         </select>
     </div>
 </div>
 
-<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-0 pe-4">
+<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-0">
     {{-- Nav Mobile --}}
-    <a href="index.html" class="navbar-brand ps-3 me-0">
+    {{-- <a href="index.html" class="navbar-brand ps-3 me-0">
         <img src="{{ url('https://arsitektur.ppv.uho.ac.id/img/logo-12.png') }}" alt="Logo" width="250">
-    </a>
-    <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+    </a> --}}
+    <button type="button" class="navbar-toggler my-3 mx-auto" data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
 

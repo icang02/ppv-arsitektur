@@ -1,4 +1,4 @@
-<div class="container-fluid bg-dark pt-5 my-5 px-0">
+<div class="container-fluid bg-dark pt-5 px-0">
     <div class="text-center mx-auto mt-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
         <p class="fw-medium text-uppercase text-primary mb-2">Our Projects</p>
         <h1 class="display-5 text-white mb-5" style="font-size: 2.5rem;">See What We Have Completed Recently</h1>

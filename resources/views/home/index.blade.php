@@ -12,17 +12,23 @@
 
 
     <!-- About Start -->
-    @include('home.components.about')
+    <div style="margin: 0rem 0 6rem 0 !important;">
+        @include('home.components.about')
+    </div>
     <!-- About End -->
 
 
     <!-- Facts Start -->
-    @include('home.components.facts')
+    <div style="margin: 6rem 0 9rem 0 !important;">
+        @include('home.components.facts')
+    </div>
     <!-- Facts End -->
 
 
     <!-- Features Start -->
-    @include('home.components.features')
+    <div style="margin: 6rem 0 6rem 0 !important;">
+        @include('home.components.features')
+    </div>
     <!-- Features End -->
 
 
@@ -32,12 +38,16 @@
 
 
     <!-- Service Start -->
-    @include('home.components.service')
+    <div style="margin: 6rem 0 6rem 0 !important;">
+        @include('home.components.service')
+    </div>
     <!-- Service End -->
 
 
     <!-- Project Start -->
-    @include('home.components.project')
+    <div style="margin: 6rem 0 9rem 0 !important;">
+        @include('home.components.project')
+    </div>
     <!-- Project End -->
 
 
