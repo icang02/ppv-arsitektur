@@ -17,13 +17,24 @@
                             @if (request()->is('dashboard/prestasi'))
                                 <a href="{{ url('/dashboard/prestasi/form') }}"><button class="btn btn-primary mb-2"><i
                                             class="fas fa-plus"></i>
-                                        Tambah Artikel</button></a>
-                            @else
+                                        Tambah Prestasi</button></a>
+                            @elseif (request()->is('dashboard/news*'))
                                 <a href="{{ url('/dashboard/news/form') }}"><button class="btn btn-primary mb-2"><i
+                                            class="fas fa-plus"></i>
+                                        Tambah Berita</button></a>
+                            @elseif (request()->is('dashboard/pengumuman*'))
+                                <a href="{{ url('/dashboard/pengumuman/form') }}"><button class="btn btn-primary mb-2"><i
+                                            class="fas fa-plus"></i>
+                                        Tambah Pengumuman</button></a>
+                            @elseif (request()->is('dashboard/aktivitas*'))
+                                <a href="{{ url('/dashboard/aktivitas/form') }}"><button class="btn btn-primary mb-2"><i
+                                            class="fas fa-plus"></i>
+                                        Tambah Aktivitas</button></a>
+                            @elseif (request()->is('dashboard/artikel*'))
+                                <a href="{{ url('/dashboard/artikel/form') }}"><button class="btn btn-primary mb-2"><i
                                             class="fas fa-plus"></i>
                                         Tambah Artikel</button></a>
                             @endif
-
                             <div class="row">
                                 <div class="col-md-12 table-responsive">
                                     <table id="example1" class="table table-sm table-bordered table-striped">
@@ -44,11 +55,16 @@
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>
                                                         @php
-                                                            if (request()->is('dashboard/prestasi*')) {
+                                                            if (request()->is('dashboard/news*')) {
                                                                 $text = 'prestasi';
-                                                            } else {
-                                                                $text = 'news';
+                                                            } elseif (request()->is('dashboard/pengumuman*')) {
+                                                                $text = 'pengumuman';
+                                                            } elseif (request()->is('dashboard/aktivitas*')) {
+                                                                $text = 'aktivitas';
+                                                            } elseif (request()->is('dashboard/artikel*')) {
+                                                                $text = 'artikel';
                                                             }
+                                                            
                                                         @endphp
                                                         <span>
                                                             <a href="{{ url("dashboard/$text/form/$item->id") }}">
@@ -57,7 +73,7 @@
                                                                 </button></a>
                                                         </span>
                                                         <form class="d-inline"
-                                                            action="{{ url("dashboard/$text/form/delete/$item->id") }}"
+                                                            action="{{ url("dashboard/news/form/delete/$item->id") }}"
                                                             method="post">
                                                             @csrf
                                                             @method('delete')
@@ -71,7 +87,8 @@
                                                         {{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->date)->format('d F Y') }}
                                                     </td>
                                                     @if (!request()->is('dashboard/prestasi'))
-                                                        <td>{{ $item->kategory }}</td>
+                                                        <td>{{ ucwords(str_replace('_', ' ', $item->kategory)) }}
+                                                        </td>
                                                     @endif
                                                     <td>{{ $item->title }}</td>
                                                 </tr>

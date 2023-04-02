@@ -100,9 +100,23 @@ Route::delete('/dashboard/akademik/delete/{id}', [MenuController::class, 'menuDe
 //dashboard  news
 Route::get('/dashboard/news', [NewsController::class, 'news'])->middleware('auth');
 Route::get('/dashboard/news/form/{id?}', [NewsController::class, 'newsForm'])->middleware('auth');
+
+//news|pengumuman|aktivitas|arikel pake method ini
 Route::post('/dashboard/news/form/store', [NewsController::class, 'newsStore']);
 Route::put('/dashboard/news/form/update/{id}', [NewsController::class, 'newsUpdate']);
 Route::delete('/dashboard/news/form/delete/{id}', [NewsController::class, 'newsDelete']);
+
+//dashboard  pengumuman
+Route::get('/dashboard/pengumuman', [NewsController::class, 'pengumuman'])->middleware('auth');
+Route::get('/dashboard/pengumuman/form/{id?}', [NewsController::class, 'pengumumanForm'])->middleware('auth');
+
+//dashboard  aktivitas
+Route::get('/dashboard/aktivitas', [NewsController::class, 'aktivitas'])->middleware('auth');
+Route::get('/dashboard/aktivitas/form/{id?}', [NewsController::class, 'aktivitasForm'])->middleware('auth');
+
+//dashboard  artikel
+Route::get('/dashboard/artikel', [NewsController::class, 'artikel'])->middleware('auth');
+Route::get('/dashboard/artikel/form/{id?}', [NewsController::class, 'artikelForm'])->middleware('auth');
 
 //dashboard direktur
 Route::get('/dashboard/direktur', [DirekturController::class, 'direktur'])->middleware('auth')->can('admin');
@@ -145,10 +159,10 @@ Route::get('/berita/{kategory}', [NewsController::class, 'index'])->name('list-n
 Route::get('/berita/{kategory}/{slug}', [NewsController::class, 'newsDetail']);
 
 //pengumuman
-Route::get('/pengumuman/{kategory}', [NewsController::class, 'pengumuman'])->name('list-announcement');
+Route::get('/pengumuman/{kategory}', [NewsController::class, 'indexPengumuman'])->name('list-announcement');
 
 //aktivitas
-Route::get('/aktivitas/{kategory}', [NewsController::class, 'aktivitas'])->name('list-activity');
+Route::get('/aktivitas/{kategory}', [NewsController::class, 'indexAktivitas'])->name('list-activity');
 
 //sarana umum
 Route::get('/sarana_umum/{id}', [FasilitasController::class, 'detailFasilitas']);

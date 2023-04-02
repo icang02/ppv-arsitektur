@@ -32,7 +32,7 @@ class NewsController extends Controller
         ]);
     }
 
-    public function pengumuman($kategory)
+    public function indexPengumuman($kategory)
     {
         $data = News::where('kategory', $kategory)->paginate(8);
         // dd($data);
@@ -43,44 +43,18 @@ class NewsController extends Controller
         ]);
     }
 
-
+    //dashboard berita
     public function news()
     {
-        // if (request()->is('dashboard/news/informasi*')) {
-        //     $slug = 'informasi';
-        // }
-        // if (request()->is('dashboard/news/pengumuman*')) {
-        //     $slug = 'pengumuman';
-        // }
-        // if (request()->is('dashboard/news/event*')) {
-        //     $slug = 'event';
-        // }
-        // if (request()->is('dashboard/news/greenmetric*')) {
-        //     $slug = 'greenmetric';
-        // }
-
-        $artikel = News::all();
+        $artikel = News::whereIn('kategory',['berita','pengumuman','agenda'])->orderBy('date', 'desc')->get();
         return view('admin.artikel', [
             'artikel' => $artikel,
-            // 'slug' => $slug
             'title' => "Berita"
         ]);
     }
 
     public function newsForm($id = null)
     {
-        // if (request()->is('dashboard/news/informasi*')) {
-        //     $slug = 'informasi';
-        // }
-        // if (request()->is('dashboard/news/pengumuman*')) {
-        //     $slug = 'pengumuman';
-        // }
-        // if (request()->is('dashboard/news/event*')) {
-        //     $slug = 'event';
-        // }
-        // if (request()->is('dashboard/news/greenmetric*')) {
-        //     $slug = 'greenmetric';
-        // }
 
         if (isset($id)) {
             $data = News::find($id);
@@ -94,6 +68,88 @@ class NewsController extends Controller
             ]);
         }
     }
+    // end dashboard berita 
+
+    // dashboard pengumuman 
+    public function pengumuman()
+    {
+        $artikel = News::whereIn('kategory',['jadwal_ujian','seminar','kuliah_umum'])->orderBy('date', 'desc')->get();
+        return view('admin.artikel', [
+            'artikel' => $artikel,
+            'title' => "Pengumuman"
+        ]);
+    }
+
+    public function pengumumanForm($id = null)
+    {
+
+        if (isset($id)) {
+            $data = News::find($id);
+            return view('admin.form-artikel', [
+                'data' => $data,
+                'title' => 'Update Pengumuman',
+            ]);
+        } else {
+            return view('admin.form-artikel', [
+                'title' => 'Tambah Pengumuman'
+            ]);
+        }
+    }
+    // end dashboard pengumuman 
+
+    // dashboard aktivitas 
+    public function aktivitas()
+    {
+        $artikel = News::whereIn('kategory',['kegiatan_mahasiswa','ekstrakulikuler','kegiatan_kampus'])->orderBy('date', 'desc')->get();
+        return view('admin.artikel', [
+            'artikel' => $artikel,
+            'title' => "Aktivitas"
+        ]);
+    }
+
+    public function aktivitasForm($id = null)
+    {
+
+        if (isset($id)) {
+            $data = News::find($id);
+            return view('admin.form-artikel', [
+                'data' => $data,
+                'title' => 'Update Aktivitas',
+            ]);
+        } else {
+            return view('admin.form-artikel', [
+                'title' => 'Tambah Aktivitas'
+            ]);
+        }
+    }
+    // end dashboard aktivitas 
+
+    // dashboard artikel
+    public function artikel()
+    {
+        $artikel = News::whereIn('kategory',['jurnal','sda'])->orderBy('date', 'desc')->get();
+        return view('admin.artikel', [
+            'artikel' => $artikel,
+            'title' => "Artikel"
+        ]);
+    }
+
+    public function artikelForm($id = null)
+    {
+
+        if (isset($id)) {
+            $data = News::find($id);
+            return view('admin.form-artikel', [
+                'data' => $data,
+                'title' => 'Update Artikel',
+            ]);
+        } else {
+            return view('admin.form-artikel', [
+                'title' => 'Tambah Artikel'
+            ]);
+        }
+    }
+    // end dashboard artikel
 
     public function newsStore(Request $request)
     {
@@ -113,7 +169,18 @@ class NewsController extends Controller
             'image' => $image ?? NULL,
             'content' => $request->content
         ]);
-        return redirect("dashboard/news")->with('success', 'Data berhasil ditambahkan.');
+
+        if (in_array($request->kategory, ['berita','pengumuman','agenda'])) {
+            $text = 'news';
+        }elseif (in_array($request->kategory, ['jadwal_ujian','seminar','kuliah_umum'])){
+            $text = 'pengumuman';
+        }elseif (in_array($request->kategory, ['kegiatan_mahasiswa','ekstrakulikuler','kegiatan_kampus'])){
+            $text = 'aktivitas';
+        }elseif (in_array($request->kategory, ['jurnal','sda'])){
+            $text = 'artikel';
+        }
+
+        return redirect("dashboard/$text")->with('success', 'Data berhasil ditambahkan.');
     }
 
     public function newsUpdate(Request $request, $id)
@@ -136,7 +203,18 @@ class NewsController extends Controller
             'image' => $image,
             'content' => $request->content
         ]);
-        return redirect("dashboard/news")->with('success', 'Data berhasil diupdate.');
+
+        if (in_array($request->kategory, ['berita','pengumuman','agenda'])) {
+            $text = 'news';
+        }elseif (in_array($request->kategory, ['jadwal_ujian','seminar','kuliah_umum'])){
+            $text = 'pengumuman';
+        }elseif (in_array($request->kategory, ['kegiatan_mahasiswa','ekstrakulikuler','kegiatan_kampus'])){
+            $text = 'aktivitas';
+        }elseif (in_array($request->kategory, ['jurnal','sda'])){
+            $text = 'artikel';
+        }
+
+        return redirect("dashboard/$text")->    with('success', 'Data berhasil diupdate.');
     }
 
     public function newsDelete($id)
@@ -148,6 +226,7 @@ class NewsController extends Controller
         }
 
         $news->delete();
-        return redirect('dashboard/news')->with('success', 'Data berhasil dihapus.');
+        return redirect()->back()->with('success', 'Data berhasil dihapus.');
     }
+
 }

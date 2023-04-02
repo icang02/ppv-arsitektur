@@ -92,7 +92,7 @@
                                         </div>
                                     </div>
 
-                                    @if (!request()->is('dashboard/prestasi*'))
+                                    @if (request()->is('dashboard/news*'))
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="kategory">Kategori</label>
@@ -101,18 +101,77 @@
                                                         <option selected>Pilih Kategori</option>
                                                     @endif
                                                     <option
-                                                        @if (isset($data)) @if ($data->kategory == 'event') selected @endif
-                                                        @endif value="event">Event</option>
-                                                    <option
-                                                        @if (isset($data)) @if ($data->kategory == 'informasi') selected @endif
-                                                        @endif value="informasi">Informasi</option>
+                                                        @if (isset($data)) @if ($data->kategory == 'berita') selected @endif
+                                                        @endif value="berita">Berita</option>
                                                     <option
                                                         @if (isset($data)) @if ($data->kategory == 'pengumuman') selected @endif
                                                         @endif value="pengumuman">Pengumuman</option>
                                                     <option
-                                                        @if (isset($data)) @if ($data->kategory == 'greenmetric') selected @endif
-                                                        @endif value="greenmetric">UI Greenmetric
+                                                        @if (isset($data)) @if ($data->kategory == 'agenda') selected @endif
+                                                        @endif value="agenda">Agenda</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    @elseif (request()->is('dashboard/pengumuman*'))
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="kategory">Kategori</label>
+                                                <select class="form-control" name="kategory" id="kategory" required>
+                                                    @if (!isset($data))
+                                                        <option selected>Pilih Kategori</option>
+                                                    @endif
+                                                    <option
+                                                        @if (isset($data)) @if ($data->kategory == 'jadwal_ujian') selected @endif
+                                                        @endif value="jadwal_ujian">Jadwal Ujian
                                                     </option>
+                                                    <option
+                                                        @if (isset($data)) @if ($data->kategory == 'seminar') selected @endif
+                                                        @endif value="seminar">Seminar</option>
+                                                    <option
+                                                        @if (isset($data)) @if ($data->kategory == 'kuliah_umum') selected @endif
+                                                        @endif value="kuliah_umum">Kuliah Umum</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    @elseif (request()->is('dashboard/aktivitas*'))
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="kategory">Kategori</label>
+                                                <select class="form-control" name="kategory" id="kategory" required>
+                                                    @if (!isset($data))
+                                                        <option selected>Pilih Kategori</option>
+                                                    @endif
+                                                    <option
+                                                        @if (isset($data)) @if ($data->kategory == 'kegiatan_mahasiswa') selected @endif
+                                                        @endif value="kegiatan_mahasiswa">Kegiatan
+                                                        Mahasiswa
+                                                    </option>
+                                                    <option
+                                                        @if (isset($data)) @if ($data->kategory == 'ekstrakulikuler') selected @endif
+                                                        @endif value="ekstrakulikuler">Ekstrakulikuler
+                                                    </option>
+                                                    <option
+                                                        @if (isset($data)) @if ($data->kategory == 'kegiatan_kampus') selected @endif
+                                                        @endif value="kegiatan_kampus">Kegiatan Kampus
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    @elseif (request()->is('dashboard/artikel*'))
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="kategory">Kategori</label>
+                                                <select class="form-control" name="kategory" id="kategory" required>
+                                                    @if (!isset($data))
+                                                        <option selected>Pilih Kategori</option>
+                                                    @endif
+                                                    <option
+                                                        @if (isset($data)) @if ($data->kategory == 'jurnal') selected @endif
+                                                        @endif value="jurnal">Jurnal
+                                                    </option>
+                                                    <option
+                                                        @if (isset($data)) @if ($data->kategory == 'sda') selected @endif
+                                                        @endif value="sda">SDA</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -121,9 +180,10 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="date">Tanggal Publikasi</label>
-                                            <input type="date" class="form-control @error('date') is-invalid @enderror"
-                                                value="{{ old('date', !isset($data) ? '' : $data->date) }}" id="date"
-                                                name="date" required>
+                                            <input type="date"
+                                                class="form-control @error('date') is-invalid @enderror"
+                                                value="{{ old('date', !isset($data) ? '' : $data->date) }}"
+                                                id="date" name="date" required>
                                         </div>
                                     </div>
 
@@ -136,9 +196,9 @@
                                             @if (!isset($data)) style="display: none" @else style="display: block" @endif
                                             width="300">
 
-                                            <input id="image" onchange="previewImage()" accept="image/*" type="file"
-                                                class="form-control @error('image') is-invalid @enderror" id="image"
-                                                name="image">
+                                            <input id="image" onchange="previewImage()" accept="image/*"
+                                                type="file" class="form-control @error('image') is-invalid @enderror"
+                                                id="image" name="image">
                                         </div>
                                     </div>
 
