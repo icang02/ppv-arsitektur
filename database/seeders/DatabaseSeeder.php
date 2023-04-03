@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
             PrestasiSeeder::class,
             FotoPrestasiSeeder::class,
             FasilitasSeeder::class,
+            DosenSeeder::class,
         ]);
     }
 }

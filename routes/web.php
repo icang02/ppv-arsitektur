@@ -8,6 +8,7 @@ use App\Http\Controllers\SlidersController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\DirekturController;
+use App\Http\Controllers\DosenController;
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\FotoPrestasiController;
 use App\Http\Controllers\VisimisiController;
@@ -185,3 +186,6 @@ Route::get('/spada', function () {
 
 // ini menu prestasi
 Route::get('/prestasi', [PrestasiController::class, 'index'])->name('prestasi');
+
+// menu civitas
+Route::get('/civitas', [DosenController::class, 'indexHome']);

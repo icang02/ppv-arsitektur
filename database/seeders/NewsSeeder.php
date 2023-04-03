@@ -64,7 +64,7 @@ class NewsSeeder extends Seeder
         $kategory = ['berita', 'pengumuman', 'agenda', 'greenmetric', 'jadwal_ujian', 'seminar', 'kuliah_umum', 'kegiatan_mahasiswa', 'ekstrakulikuler', 'kegiatan_kampus', 'jurnal', 'sda'];
         for ($i = 0; $i < 300; $i++) {
             News::create([
-                'title' => fake()->paragraph(),
+                'title' => fake()->sentence(),
                 'slug' => uniqid() . fake()->sentence(),
                 'kategory' => $kategory[rand(0, 11)],
                 'date' => fake()->date(),
