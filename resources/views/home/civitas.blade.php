@@ -35,7 +35,7 @@
                         <img src="{{ url($dsn->foto) }}" alt="foto"
                             style="object-fit: cover; width: 100%; height: 280px;">
                         <div class="service-img">
-                            <a href="{{ url('civitas/dosen/' . 1) }}">
+                            <a style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <style>
                                     .dosen {
                                         transition: 0.3s;
@@ -43,6 +43,25 @@
 
                                     .dosen:hover {
                                         filter: brightness(70%);
+                                    }
+
+                                    .kiri {
+                                        width: 25%;
+                                    }
+
+                                    .kanan {
+                                        width: 75%;
+                                    }
+
+                                    @media only screen and (max-width: 576px) {
+                                        .kiri {
+                                            display: none;
+                                        }
+
+                                        .kanan {
+                                            width: 100%;
+                                            font-size: 0.85rem;
+                                        }
                                     }
                                 </style>
                                 <img class="dosen" src="{{ url($dsn->foto) }}" alt="foto"
@@ -68,6 +87,64 @@
                             </div>
                         </div>
                         {{-- <a class="btn btn-light" href="" style="font-size: 0.85rem;">Read More</a> --}}
+                    </div>
+                </div>
+
+                {{-- Modal Detail Dosen --}}
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-lg modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Data Dosen</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="d-flex gap-5">
+                                    <div class="kiri align-items-stretch">
+                                        <img class="dosen" src="{{ url($dsn->foto) }}" alt="foto"
+                                            style="object-fit: cover; width: 100%; height: 200px;">
+                                    </div>
+                                    <div class="kanan">
+                                        <div class="table-responsive">
+                                            <table class="table table-sm">
+                                                <tbody>
+                                                    <tr class="fw-bold">
+                                                        <td scope="row">Nama</td>
+                                                        <td>:</td>
+                                                        <td>{{ $dsn->nama }}</td>
+                                                    </tr>
+                                                    <tr class="fw-bold">
+                                                        <td scope="row">NIDN</td>
+                                                        <td>:</td>
+                                                        <td>{{ $dsn->nidn }}</td>
+                                                    </tr>
+                                                    <tr class="fw-bold">
+                                                        <td scope="row">NIP</td>
+                                                        <td>:</td>
+                                                        <td colspan="2">{{ $dsn->nip }}</td>
+                                                    </tr>
+                                                    <tr class="fw-bold">
+                                                        <td scope="row">Pendidikan</td>
+                                                        <td>:</td>
+                                                        <td colspan="2">{{ $dsn->pendidikan }}</td>
+                                                    </tr>
+                                                    <tr class="fw-bold">
+                                                        <td scope="row">Email</td>
+                                                        <td>:</td>
+                                                        <td colspan="2">{{ $dsn->email }}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             @endforeach
