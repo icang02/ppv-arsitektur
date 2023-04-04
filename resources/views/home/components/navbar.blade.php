@@ -143,6 +143,31 @@
                         class="dropdown-item {{ request()->is('artikel/sda*') ? 'active' : '' }}">SDA</a>
                 </div>
             </div>
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle {{ request()->is('article*') ? 'active' : '' }}"
+                    data-bs-toggle="dropdown">Alumni</a>
+                <div class="dropdown-menu bg-light m-0">
+                    <a href="#"
+                        class="dropdown-item {{ request()->is('artikel/jurnal*') ? 'active' : '' }}">Biodata Alumni</a>
+                    <a href="#"
+                        class="dropdown-item {{ request()->is('artikel/sda*') ? 'active' : '' }}">Database Alumni</a>
+                    <a href="#" class="dropdown-item {{ request()->is('artikel/sda*') ? 'active' : '' }}">Tracer
+                        Studi</a>
+                </div>
+            </div>
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle {{ request()->is('article*') ? 'active' : '' }}"
+                    data-bs-toggle="dropdown">E-Survei</a>
+                <div class="dropdown-menu bg-light m-0">
+                    <a href="{{ route('list-artikel', 'jurnal') }}"
+                        class="dropdown-item {{ request()->is('artikel/jurnal*') ? 'active' : '' }}">Survei
+                        Visi-Misi</a>
+                    <a href="{{ route('list-artikel', 'sda') }}"
+                        class="dropdown-item {{ request()->is('artikel/sda*') ? 'active' : '' }}">Survei Kepuasan</a>
+                </div>
+            </div>
         </div>
     </div>
 </nav>

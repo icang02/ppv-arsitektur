@@ -3,7 +3,8 @@
         <div class="row g-5 align-items-center">
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="position-relative me-lg-4">
-                    <img class="img-fluid w-100" src="{{ asset('home-assets') }}/img/feature.jpg" alt="">
+                    <img style="width: 100%;" src="{{ url('https://jeda.id/files/2019/09/27-haluoleo-2-1200x900.jpg') }}"
+                        alt="">
                     <span
                         class="position-absolute top-50 start-100 translate-middle bg-white rounded-circle d-none d-lg-block"
                         style="width: 120px; height: 120px;"></span>
@@ -14,14 +15,14 @@
                 </div>
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                <p class="fw-medium text-uppercase text-primary mb-2">Why Choosing Us!</p>
-                <h1 class="display-5 mb-4" style="font-size: 2.5rem;">Few Reasons Why People Choosing Us!</h1>
-                <p class="mb-4" style="font-size: 0.85rem;">Tempor erat elitr rebum at clita. Diam dolor diam ipsum
-                    sit.
-                    Aliqu diam amet diam et
-                    eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet
+                <p class="fw-medium text-uppercase text-primary mb-2">Video Profil</p>
+                <h1 class="display-5 mb-4" style="font-size: 2.5rem;">Profil PPV Arsitektur</h1>
+                <p class="mb-4" style="font-size: 0.85rem;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quisquam amet impedit, id necessitatibus, commodi sint quas laboriosam at fuga alias asperiores
+                    eaque provident reiciendis temporibus repellat nemo pariatur. Unde est sit doloribus consequuntur
+                    voluptate voluptatum fugit, optio dolorem amet! Esse?
                 </p>
-                <div class="row gy-4">
+                {{-- <div class="row gy-4">
                     <div class="col-12">
                         <div class="d-flex">
                             <div class="flex-shrink-0 btn-square rounded-circle bg-primary">
@@ -35,7 +36,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

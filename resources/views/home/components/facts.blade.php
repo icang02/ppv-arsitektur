@@ -1,4 +1,5 @@
-<div class="container-fluid facts" style="padding-top: 100px; padding-bottom: 100px; overflow-x: hidden;">
+<div class="container-fluid facts"
+    style="padding-top: 100px; padding-bottom: 100px; overflow-x: hidden; background-color: #005D64;">
     <div class="row g-5">
         <h1 style="color: #fff;" class="text-center">Arsitektur PPV</h1>
         {{-- <div class="col-md-6 col-xl-3 wow fadeIn" data-wow-delay="0.1s">

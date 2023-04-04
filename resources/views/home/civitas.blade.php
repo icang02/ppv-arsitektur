@@ -32,7 +32,7 @@
                 <div class="col-md-6 col-sm-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item"
                         style="border-style: solid; border-top-color: rgba(2,36,91,.4); border-right-color: rgb(2,36,91,.4); border-left-color: rgba(255,94,20,.4); border-bottom-color: rgba(255,94,20,.4);">
-                        <img src="{{ url($dsn->foto) }}" alt="foto"
+                        <img src="{{ url('https://jeda.id/files/2019/09/27-haluoleo-2-1200x900.jpg') }}" alt="foto"
                             style="object-fit: cover; width: 100%; height: 280px;">
                         <div class="service-img">
                             <a style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal">

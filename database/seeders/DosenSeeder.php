@@ -21,7 +21,7 @@ class DosenSeeder extends Seeder
                 'nip' => fake()->numberBetween(100000000000000000,999999999999999999),
                 'pendidikan' => fake()->title(),
                 'email' => fake()->email(),
-                'foto' => 'https://images.unsplash.com/photo-1560193327-e52dafa295f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fDMwMHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60',
+                'foto' => 'https://img.freepik.com/premium-vector/people-profile-graphic_24911-21373.jpg',
             ]);
         }
     }

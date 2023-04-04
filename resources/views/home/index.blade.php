@@ -38,9 +38,9 @@
 
 
     <!-- Service Start -->
-    <div style="margin: 6rem 0 6rem 0 !important;">
+    {{-- <div style="margin: 6rem 0 6rem 0 !important;">
         @include('home.components.service')
-    </div>
+    </div> --}}
     <!-- Service End -->
 
 
