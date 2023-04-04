@@ -18,7 +18,7 @@ class IndexController extends Controller
     $direktur = Direktur::all();
     $visimisi = Visimisi::all();
     $gallery = Gallery::take(8)->get();
-    $news = News::orderBy('date', 'desc')->take(8)->get();
+    $news = News::whereIn('kategory', ['berita','pengumuman','agenda'])->orderBy('date', 'desc')->take(6)->get();
     $kerjasama = Sponsor::all();
 
     return view('home.index', [

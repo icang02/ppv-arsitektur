@@ -2,14 +2,14 @@
     <div class="modal-dialog">
         <div class="modal-content rounded-0">
             <div class="modal-header">
-                <h3 class="modal-title" id="exampleModalLabel">Youtube Video</h3>
+                <h4 class="modal-title" id="exampleModalLabel">Profil D-III Arsitektur PPV UHO</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <!-- 16:9 aspect ratio -->
-                <div class="ratio ratio-16x9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/fh6kChwFI_c?rel=0"
-                        id="video" allowfullscreen allowscriptaccess="always" allow="autoplay"></iframe>
+                <div class="ratio ratio-16x9 shadow">
+                    <iframe src="https://www.youtube.com/embed/fh6kChwFI_c?rel=0" frameborder="0" allowfullscreen
+                        class="video"></iframe>
                 </div>
             </div>
         </div>

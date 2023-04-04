@@ -6,9 +6,16 @@
     <!-- Carousel End -->
 
 
-    <!-- Team Start -->
-    @include('home.components.kaprodi', ['kaprodi' => $direktur])
-    <!-- Team End -->
+    <!-- Features Start -->
+    <div style="margin: 6rem 0 6rem 0 !important;">
+        @include('home.components.features', ['kaprodi' => $direktur])
+    </div>
+    <!-- Features End -->
+
+
+    <!-- Video Modal Start -->
+    @include('home.components.video-modal')
+    <!-- Video Modal End -->
 
 
     <!-- About Start -->
@@ -19,23 +26,14 @@
 
 
     <!-- Facts Start -->
-    <div style="margin: 6rem 0 9rem 0 !important;">
+    <div style="margin: 0 0 0 0 !important;">
         @include('home.components.facts')
     </div>
     <!-- Facts End -->
 
-
-    <!-- Features Start -->
-    <div style="margin: 6rem 0 6rem 0 !important;">
-        @include('home.components.features')
-    </div>
-    <!-- Features End -->
-
-
-    <!-- Video Modal Start -->
-    @include('home.components.video-modal')
-    <!-- Video Modal End -->
-
+    {{-- news start --}}
+    @include('home.components.news', ['news' => $news])
+    {{-- news end --}}
 
     <!-- Service Start -->
     {{-- <div style="margin: 6rem 0 6rem 0 !important;">
