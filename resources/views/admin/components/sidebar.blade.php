@@ -190,19 +190,6 @@
                         </a>
                     </li>
                 @endcan
-
-                <hr />
-
-                <li class="nav-item">
-                    <a href="{{ url('/logout') }}"
-                        class="nav-link {{ request()->is('dashboard/link*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-link"></i>
-                        <p>
-                            Logout
-                        </p>
-                    </a>
-                </li>
-
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

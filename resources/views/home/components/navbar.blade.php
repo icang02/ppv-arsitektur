@@ -27,24 +27,38 @@
     }
 </style>
 
+{{-- Translate --}}
+<link rel="stylesheet" href="{{ asset('home-assets/css/navbar.css') }}">
+<script type="text/javascript" src="{{ asset('home-assets/js/translate.js') }}"></script>
+<script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+                pageLanguage: "id",
+                includedLanguages: 'id,en',
+            },
+            "google_translate_element"
+        );
+    }
+
+    window.addEventListener("load", (event) => {
+        const select = document.querySelector(".goog-te-combo");
+        select.classList.add("form-select");
+    });
+</script>
+
 {{-- Nav Desktop --}}
 <div
     class="nav-desktop bg-white w-100 px-5 py-3 border-bottom border-2 d-flex align-items-center justify-content-between">
     <a href="{{ url('/') }}">
         <img src="{{ url('https://arsitektur.ppv.uho.ac.id/img/logo-12.png') }}" alt="Logo" width="250">
     </a>
+    {{-- Translate element --}}
     <div class="g-translate">
-        <select class="form-select form-select-sm">
-            <option value="">Indonesia</option>
-        </select>
+        <div id="google_translate_element"></div>
     </div>
 </div>
 
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-0">
-    {{-- Nav Mobile --}}
-    {{-- <a href="index.html" class="navbar-brand ps-3 me-0">
-        <img src="{{ url('https://arsitektur.ppv.uho.ac.id/img/logo-12.png') }}" alt="Logo" width="250">
-    </a> --}}
     <button type="button" class="navbar-toggler my-3 mx-auto" data-bs-toggle="collapse"
         data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>

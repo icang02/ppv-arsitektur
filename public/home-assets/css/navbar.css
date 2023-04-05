@@ -1,0 +1,22 @@
+/* Google translate */
+.goog-te-gadget {
+  color: transparent !important;
+}
+
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget > span {
+  display: none;
+}
+
+#google_translate_element select {
+  color: #bc8a00;
+  height: 2.35rem;
+  border-radius: 4px;
+}
+
+.form-control {
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 767px) {
+}

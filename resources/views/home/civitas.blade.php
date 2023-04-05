@@ -5,6 +5,33 @@
         body {
             background-color: #EFEFEF
         }
+
+        .dosen {
+            transition: 0.3s;
+        }
+
+        .dosen:hover {
+            filter: brightness(70%);
+        }
+
+        .kiri {
+            width: 25%;
+        }
+
+        .kanan {
+            width: 75%;
+        }
+
+        @media only screen and (max-width: 576px) {
+            .kiri {
+                display: none;
+            }
+
+            .kanan {
+                width: 100%;
+                font-size: 0.85rem;
+            }
+        }
     </style>
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -32,40 +59,19 @@
                 <div class="col-md-6 col-sm-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item"
                         style="border-style: solid; border-top-color: rgba(2,36,91,.4); border-right-color: rgb(2,36,91,.4); border-left-color: rgba(255,94,20,.4); border-bottom-color: rgba(255,94,20,.4);">
-                        <img src="{{ url('https://jeda.id/files/2019/09/27-haluoleo-2-1200x900.jpg') }}" alt="foto"
+                        <img src="{{ asset('home-assets/img/bg-dosen-foto.jpg') }}" alt="foto"
                             style="object-fit: cover; width: 100%; height: 280px;">
                         <div class="service-img">
-                            <a style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <style>
-                                    .dosen {
-                                        transition: 0.3s;
-                                    }
+                            <a style="cursor: pointer;" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal{{ $dsn->id }}">
 
-                                    .dosen:hover {
-                                        filter: brightness(70%);
-                                    }
-
-                                    .kiri {
-                                        width: 25%;
-                                    }
-
-                                    .kanan {
-                                        width: 75%;
-                                    }
-
-                                    @media only screen and (max-width: 576px) {
-                                        .kiri {
-                                            display: none;
-                                        }
-
-                                        .kanan {
-                                            width: 100%;
-                                            font-size: 0.85rem;
-                                        }
-                                    }
-                                </style>
-                                <img class="dosen" src="{{ url($dsn->foto) }}" alt="foto"
-                                    style="object-fit: cover; width: 100%; height: 100%;">
+                                @if (is_null($dsn->foto))
+                                    <img class="dosen" src="{{ asset('home-assets/img/foto-default.png') }}" alt="foto"
+                                        style="object-fit: cover; width: 100%; height: 100%;">
+                                @else
+                                    <img class="dosen" src="{{ url("storage/$dsn->foto") }}" alt="foto"
+                                        style="object-fit: cover; width: 100%; height: 100%;">
+                                @endif
                             </a>
                         </div>
                         <div class="service-detail">
@@ -86,13 +92,12 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <a class="btn btn-light" href="" style="font-size: 0.85rem;">Read More</a> --}}
                     </div>
                 </div>
 
                 {{-- Modal Detail Dosen --}}
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
+                <div class="modal fade" id="exampleModal{{ $dsn->id }}" tabindex="-1"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-lg modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -103,8 +108,13 @@
                             <div class="modal-body">
                                 <div class="d-flex gap-5">
                                     <div class="kiri align-items-stretch">
-                                        <img class="dosen" src="{{ url($dsn->foto) }}" alt="foto"
-                                            style="object-fit: cover; width: 100%; height: 200px;">
+                                        @if (is_null($dsn->foto))
+                                            <img class="dosen" src="{{ asset('home-assets/img/foto-default.png') }}"
+                                                alt="foto" style="object-fit: cover; width: 100%; height: 200px;">
+                                        @else
+                                            <img class="dosen" src="{{ asset("storage/$dsn->foto") }}" alt="foto"
+                                                style="object-fit: cover; width: 100%; height: 200px;">
+                                        @endif
                                     </div>
                                     <div class="kanan">
                                         <div class="table-responsive">

@@ -70,6 +70,16 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('home-assets/js/main.js') }}"></script>
+
+    <script>
+        window.addEventListener("load", (event) => {
+            const body = document.querySelector(`body`);
+
+            for (let i = 0; i < body.attributes.length; i++) {
+                body.removeAttribute(body.attributes[i].name);
+            }
+        });
+    </script>
 </body>
 
 </html>
