@@ -109,7 +109,6 @@
                     </a>
                 </li>
 
-
                 @can('admin')
                     <li class="nav-item">
                         <a href="{{ url('/dashboard/fasilitas') }}"
@@ -117,6 +116,15 @@
                             <i class="nav-icon fas fa-building"></i>
                             <p>
                                 Sarana Umum
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('/dashboard/civitas') }}"
+                            class="nav-link {{ request()->is('dashboard/civitas*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-building"></i>
+                            <p>
+                                Civitas
                             </p>
                         </a>
                     </li>

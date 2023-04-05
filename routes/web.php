@@ -153,6 +153,13 @@ Route::delete('/dashboard/fasilitas/delete/{id}', [FasilitasController::class, '
 Route::get('/dashboard/fasilitas/foto/delete/{id}/{fasilitas_id}', [FasilitasController::class, 'destroyFoto'])->middleware('auth')->can('admin');
 Route::post('/dashboard/fasilitas/foto/store', [FasilitasController::class, 'storeFoto'])->middleware('auth')->can('admin');
 
+// route civitas
+Route::get('/dashboard/civitas', [DosenController::class, 'index'])->middleware('auth')->can('admin');
+Route::get('/dashboard/civitas/create', [DosenController::class, 'create'])->middleware('auth')->can('admin');
+Route::post('/dashboard/civitas/store', [DosenController::class, 'store'])->middleware('auth');
+Route::get('/dashboard/civitas/{id}', [DosenController::class, 'edit'])->middleware('auth')->can('admin');
+Route::put('/dashboard/civitas/update/{id}', [DosenController::class, 'update'])->middleware('auth');
+Route::delete('/dashboard/civitas/destroy/{id}', [DosenController::class, 'destroy'])->middleware('auth');
 
 // INI HARUS BAGIAN BAWAH BIAR TIDAK MENIMPA
 // news
