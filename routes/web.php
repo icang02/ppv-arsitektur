@@ -14,6 +14,7 @@ use App\Http\Controllers\FotoPrestasiController;
 use App\Http\Controllers\VisimisiController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\LinkController;
+use App\Http\Controllers\PenelitianController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\SponsorController;
 
@@ -196,3 +197,6 @@ Route::get('/prestasi', [PrestasiController::class, 'index'])->name('prestasi');
 
 // menu civitas
 Route::get('/civitas', [DosenController::class, 'indexHome']);
+
+// menu penelitian
+Route::get('/penelitian', [PenelitianController::class, 'indexHome']);
