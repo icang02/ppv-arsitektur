@@ -148,11 +148,12 @@
             </div>
 
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle {{ request()->is('article*') ? 'active' : '' }}"
+                <a href="#"
+                    class="nav-link dropdown-toggle {{ request()->is('artikel*') || request()->is('penelitian') ? 'active' : '' }}"
                     data-bs-toggle="dropdown">Artikel</a>
                 <div class="dropdown-menu bg-light m-0">
-                    <a href="{{ route('list-artikel', 'jurnal') }}"
-                        class="dropdown-item {{ request()->is('artikel/jurnal*') ? 'active' : '' }}">Jurnal</a>
+                    <a href="{{ url('penelitian') }}"
+                        class="dropdown-item {{ request()->is('penelitian') ? 'active' : '' }}">Jurnal</a>
                     <a href="{{ route('list-artikel', 'sda') }}"
                         class="dropdown-item {{ request()->is('artikel/sda*') ? 'active' : '' }}">SDA</a>
                 </div>
