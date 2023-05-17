@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,12 @@ Route::get('/dashboard', [IndexController::class, 'dashboard'])->middleware('aut
 Route::get('admin', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('login', [AuthController::class, 'authenticate']);
 Route::get('logout', [AuthController::class, 'logout'])->middleware('auth');
+
+// dashboard alumni
+Route::get('/dashboard/alumni', [AlumniController::class, 'alumniAdmin']);
+
+Route::get('/dashboard/alumni/{id}', [AlumniController::class, 'detailalumni']);
+Route::delete('/dashboard/alumni/{id}', [AlumniController::class, 'destroy']);
 
 // dashbard Sliders
 Route::get('/dashboard/sliders', [SlidersController::class, 'sliders'])->middleware('auth')->can('admin');
@@ -200,3 +207,7 @@ Route::get('/civitas', [DosenController::class, 'indexHome']);
 
 // menu penelitian
 Route::get('/penelitian', [PenelitianController::class, 'indexHome']);
+
+// menu biodata alumni
+Route::get('/biodata-alumni', [AlumniController::class, 'alumniHome']);
+Route::post('/biodata-alumni', [AlumniController::class, 'alumniStore']);

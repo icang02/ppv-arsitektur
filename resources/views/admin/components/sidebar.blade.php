@@ -151,6 +151,15 @@
                 </li>
                 @can('admin')
                     <li class="nav-item">
+                        <a href="{{ url('/dashboard/alumni') }}"
+                            class="nav-link {{ request()->is('dashboard/alumni*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-newspaper"></i>
+                            <p>
+                                Alumni
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ url('/dashboard/survei') }}"
                             class="nav-link {{ request()->is('dashboard/survei*') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-link"></i>

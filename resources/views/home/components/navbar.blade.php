@@ -160,15 +160,11 @@
             </div>
 
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle {{ request()->is('article*') ? 'active' : '' }}"
+                <a href="#" class="nav-link dropdown-toggle {{ request()->is('biodata-alumni*') ? 'active' : '' }}"
                     data-bs-toggle="dropdown">Alumni</a>
                 <div class="dropdown-menu bg-light m-0">
-                    <a href="#"
-                        class="dropdown-item {{ request()->is('artikel/jurnal*') ? 'active' : '' }}">Biodata Alumni</a>
-                    <a href="#"
-                        class="dropdown-item {{ request()->is('artikel/sda*') ? 'active' : '' }}">Database Alumni</a>
-                    <a href="#" class="dropdown-item {{ request()->is('artikel/sda*') ? 'active' : '' }}">Tracer
-                        Studi</a>
+                    <a href="{{ url('biodata-alumni') }}"
+                        class="dropdown-item {{ request()->is('biodata-alumni*') ? 'active' : '' }}">Biodata Alumni</a>
                 </div>
             </div>
 
