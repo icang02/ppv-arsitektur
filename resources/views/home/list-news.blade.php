@@ -24,11 +24,11 @@
     <div class="container p-lg-5 p-3 bg-white shadow-lg" style="margin-top: -150px;">
         <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <p class="fw-medium text-uppercase text-primary mb-2">{{ $menu }}</p>
-            <h1 class="display-5 mb-5" style="font-size: 2.5rem;">{{ ucwords(str_replace('_', ' ', $kategory)) }}</h1>
+            <h1 class="display-5 mb-5" style="font-size: 2.5rem;">{{ ucwords(str_replace('_', ' ', $kategory == 'sda' ? strtoupper($kategory) : $kategory)) }}</h1>
         </div>
 
         <div class="row">
-            @foreach ($news as $nws)
+            @forelse ($news as $nws)
                 <div class="col-md-6 col-sm-6 col-lg-4 wow fadeInUp mb-5" data-wow-delay="0.1s">
                     <div class="service-item top-0 shadow-lg m-0">
                         @if ($nws->image == null)
@@ -61,7 +61,11 @@
                             style="font-size: 0.85rem;">Read More</a>
                     </div>
                 </div>
-            @endforeach
+            @empty
+             <div class="text-center">
+                <h6>Belum ada data.</h6>
+             </div>
+            @endforelse
 
             <div class="mt-4">
                 {{ $news->links('vendor.pagination.bootstrap-5') }}

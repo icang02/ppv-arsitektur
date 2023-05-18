@@ -72,6 +72,9 @@
                                             @if (request()->is('dashboard/prestasi*'))
                                                 <a href="{{ url('dashboard/prestasi') }}"
                                                     class="btn btn-secondary btn-sm">Kembali</a>
+                                            @elseif (request()->is('dashboard/artikel*'))
+                                                <a href="{{ url('dashboard/artikel') }}"
+                                                    class="btn btn-secondary btn-sm">Kembali</a>
                                             @else
                                                 <a href="{{ url('dashboard/news') }}"
                                                     class="btn btn-secondary btn-sm">Kembali</a>
@@ -158,7 +161,8 @@
                                             </div>
                                         </div>
                                     @elseif (request()->is('dashboard/artikel*'))
-                                        <div class="col-md-12">
+                                        <input type="hidden" name="kategory" value="sda">
+                                        {{-- <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="kategory">Kategori</label>
                                                 <select class="form-control" name="kategory" id="kategory" required>
@@ -174,7 +178,7 @@
                                                         @endif value="sda">SDA</option>
                                                 </select>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     @endif
 
                                     <div class="col-md-12">

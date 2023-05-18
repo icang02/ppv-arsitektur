@@ -195,7 +195,7 @@ class NewsController extends Controller
     // dashboard artikel
     public function artikel()
     {
-        $artikel = News::whereIn('kategory',['jurnal','sda'])->orderBy('date', 'desc')->get();
+        $artikel = News::whereIn('kategory',['sda'])->orderBy('date', 'desc')->get();
         return view('admin.artikel', [
             'artikel' => $artikel,
             'title' => "Artikel"

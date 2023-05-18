@@ -3,7 +3,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/dashboard" class="brand-link">
-        <img src="{{ asset('home-assets/img/vokasi-logo.png') }}" alt="ppv uho" widht="50px" class="img-fluid">
+        <img src="{{ asset('home-assets/img/logo-uho.png') }}" width="50" alt="ppv uho" widht="50px" class="img-fluid">
+        PPV Arsitektur
     </a>
 
     <!-- Sidebar -->
@@ -140,15 +141,42 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{ url('/dashboard/artikel') }}"
-                        class="nav-link {{ request()->is('dashboard/artikel*') ? 'active' : '' }}">
+                {{-- <li class="nav-item">
+                    <a href="{{ url('/dashboard/prestasi') }}"
+                        class="nav-link {{ request()->is('dashboard/prestasi*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-newspaper"></i>
+                        <p>
+                            Prestasi
+                        </p>
+                    </a>
+                </li> --}}
+
+                <li class="nav-item {{ request()->is('dashboard/artikel') || request()->is('dashboard/penelitian') || request()->is('dashboard/penelitian/create') ? 'menu-is-opening menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->is('dashboard/artikel') || request()->is('dashboard/penelitian') || request()->is('dashboard/penelitian/create') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-newspaper"></i>
                         <p>
                             Artikel
+                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ url('/dashboard/penelitian') }}"
+                                class="nav-link {{ request()->is('dashboard/penelitian*') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-newspaper"></i>
+                                <p>Jurnal</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/dashboard/artikel') }}"
+                                class="nav-link {{ request()->is('dashboard/artikel') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-newspaper"></i>
+                                <p>SDA</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
                 @can('admin')
                     <li class="nav-item">
                         <a href="{{ url('/dashboard/alumni') }}"

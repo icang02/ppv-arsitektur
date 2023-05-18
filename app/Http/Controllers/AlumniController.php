@@ -54,8 +54,6 @@ class AlumniController extends Controller
         ]);
     }
 
-
-
     public function destroy($id)
     {
         $alumni = Alumni::find($id);

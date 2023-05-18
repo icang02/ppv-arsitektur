@@ -63,8 +63,10 @@
                                                                 $text = 'aktivitas';
                                                             } elseif (request()->is('dashboard/artikel*')) {
                                                                 $text = 'artikel';
+                                                            } elseif (request()->is('dashboard/prestasi*')) {
+                                                                $text = 'prestasi';
                                                             }
-                                                            
+                                                             
                                                         @endphp
                                                         <span>
                                                             <a href="{{ url("dashboard/$text/form/$item->id") }}">
@@ -87,7 +89,7 @@
                                                         {{ \Carbon\Carbon::createFromFormat('Y-m-d', $item->date)->format('d F Y') }}
                                                     </td>
                                                     @if (!request()->is('dashboard/prestasi'))
-                                                        <td>{{ ucwords(str_replace('_', ' ', $item->kategory)) }}
+                                                        <td>{{ ucwords(str_replace('_', ' ', $item->kategory == 'sda' ? strtoupper($item->kategory) : $item->kategory)) }}
                                                         </td>
                                                     @endif
                                                     <td>{{ $item->title }}</td>

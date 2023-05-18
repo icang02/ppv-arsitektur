@@ -55,7 +55,7 @@
         </div>
 
         <div class="row">
-            @foreach ($dosen as $dsn)
+            @forelse ($dosen as $dsn)
                 <div class="col-md-6 col-sm-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item"
                         style="border-style: solid; border-top-color: rgba(2,36,91,.4); border-right-color: rgb(2,36,91,.4); border-left-color: rgba(255,94,20,.4); border-bottom-color: rgba(255,94,20,.4);">
@@ -157,7 +157,11 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <div class="text-center">
+                    <h6>Belum ada data dosen.</h6>
+                </div>
+            @endforelse
 
             <div class="mt-4">
                 {{ $dosen->links('vendor.pagination.bootstrap-5') }}

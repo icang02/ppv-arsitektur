@@ -115,6 +115,14 @@ Route::post('/dashboard/news/form/store', [NewsController::class, 'newsStore']);
 Route::put('/dashboard/news/form/update/{id}', [NewsController::class, 'newsUpdate']);
 Route::delete('/dashboard/news/form/delete/{id}', [NewsController::class, 'newsDelete']);
 
+//dashboard penelitian
+Route::get('/dashboard/penelitian', [PenelitianController::class, 'indexAdmin'])->middleware('auth');
+Route::get('/dashboard/penelitian/create', [PenelitianController::class, 'create'])->middleware('auth');
+Route::post('/dashboard/penelitian/store', [PenelitianController::class, 'store'])->middleware('auth');
+Route::get('/dashboard/penelitian/{penelitian}', [PenelitianController::class, 'edit'])->middleware('auth');
+Route::put('/dashboard/penelitian/update/{penelitian}', [PenelitianController::class, 'update'])->middleware('auth');
+Route::delete('/dashboard/penelitian/destroy/{penelitian}', [PenelitianController::class, 'destroy'])->middleware('auth');
+
 //dashboard  pengumuman
 Route::get('/dashboard/pengumuman', [NewsController::class, 'pengumuman'])->middleware('auth');
 Route::get('/dashboard/pengumuman/form/{id?}', [NewsController::class, 'pengumumanForm'])->middleware('auth');
