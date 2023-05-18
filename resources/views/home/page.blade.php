@@ -19,6 +19,8 @@
             </nav>
         </div>
     </div>
+
+
     <!-- Page Header End -->
 
     <div class="container p-5 bg-white shadow-lg">
@@ -27,7 +29,13 @@
             <h1 class="display-5 mb-5" style="font-size: 2.5rem;">{{ $menu->title }}</h1>
         </div>
         <div class="row gy-5 gx-4">
-            <p class="m-4" style="font-size: 0.85rem;">{!! $menu->content !!}</p>
+
+            @if (request()->is('survei/survei-visi*'))
+                <iframe src="{{ $menu->content }}?embedded=true" width="100%" height="1080" frameborder="0"
+                    marginheight="0" marginwidth="0">Memuat…</iframe>
+            @else
+                <p class="m-4" style="font-size: 0.85rem;">{!! $menu->content !!}</p>
+            @endif
         </div>
     </div>
 @endsection

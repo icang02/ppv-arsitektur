@@ -160,7 +160,8 @@
             </div>
 
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle {{ request()->is('biodata-alumni*') ? 'active' : '' }}"
+                <a href="#"
+                    class="nav-link dropdown-toggle {{ request()->is('biodata-alumni*') ? 'active' : '' }}"
                     data-bs-toggle="dropdown">Alumni</a>
                 <div class="dropdown-menu bg-light m-0">
                     <a href="{{ url('biodata-alumni') }}"
@@ -169,14 +170,17 @@
             </div>
 
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle {{ request()->is('article*') ? 'active' : '' }}"
+                <a href="#" class="nav-link dropdown-toggle {{ request()->is('survei*') ? 'active' : '' }}"
                     data-bs-toggle="dropdown">E-Survei</a>
                 <div class="dropdown-menu bg-light m-0">
-                    <a href="{{ route('list-artikel', 'jurnal') }}"
-                        class="dropdown-item {{ request()->is('artikel/jurnal*') ? 'active' : '' }}">Survei
+                    <a href="{{ route('menuSurvei', 'survei-visi-misi-ppv') }}"
+                        class="dropdown-item {{ request()->is('survei/survei-visi-misi-ppv') ? 'active' : '' }}">Survei
                         Visi-Misi</a>
-                    <a href="{{ route('list-artikel', 'sda') }}"
-                        class="dropdown-item {{ request()->is('artikel/sda*') ? 'active' : '' }}">Survei Kepuasan</a>
+                    <a href="{{ route('menuSurvei', 'survei-kepuasan-pengguna-ppv') }}"
+                        class="dropdown-item {{ request()->is('survei/survei-kepuasan-pengguna-ppv') ? 'active' : '' }}">Survei
+                        Kepuasan</a>
+
+
                 </div>
             </div>
         </div>

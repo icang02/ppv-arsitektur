@@ -63,7 +63,7 @@ Route::put('/dashboard/sliders/update/{id}', [SlidersController::class, 'sliders
 Route::delete('/dashboard/sliders/delete/{id}', [SlidersController::class, 'slidersDelete']);
 
 // Menu Survei
-Route::get('/survei/{menu:slug}', [MenuController::class, 'menuSurvei'])->name('menuSurvei')->can('admin');
+Route::get('/survei/{menu:slug}', [MenuController::class, 'menuSurvei'])->name('menuSurvei');
 
 // dashboard profil
 Route::get('/dashboard/profil', [MenuController::class, 'menu'])->middleware('auth')->can('admin');
