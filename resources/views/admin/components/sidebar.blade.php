@@ -3,7 +3,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/dashboard" class="brand-link">
-        <img src="{{ asset('home-assets/img/logo-uho.png') }}" width="50" alt="ppv uho" widht="50px" class="img-fluid">
+        <img src="{{ asset('home-assets/img/logo-uho.png') }}" width="50" alt="ppv uho" widht="50px"
+            class="img-fluid">
         PPV Arsitektur
     </a>
 
@@ -85,7 +86,7 @@
                     </li>
                 @endcan
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ url('/dashboard/pengumuman') }}"
                         class="nav-link {{ request()->is('dashboard/pengumuman*') ? 'active' : '' }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -108,7 +109,7 @@
                             Aktivitas
                         </p>
                     </a>
-                </li>
+                </li> --}}
 
                 @can('admin')
                     <li class="nav-item">
@@ -151,8 +152,10 @@
                     </a>
                 </li> --}}
 
-                <li class="nav-item {{ request()->is('dashboard/artikel') || request()->is('dashboard/penelitian') || request()->is('dashboard/penelitian/create') ? 'menu-is-opening menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ request()->is('dashboard/artikel') || request()->is('dashboard/penelitian') || request()->is('dashboard/penelitian/create') ? 'active' : '' }}">
+                <li
+                    class="nav-item {{ request()->is('dashboard/artikel') || request()->is('dashboard/penelitian') || request()->is('dashboard/penelitian/create') ? 'menu-is-opening menu-open' : '' }}">
+                    <a href="#"
+                        class="nav-link {{ request()->is('dashboard/artikel') || request()->is('dashboard/penelitian') || request()->is('dashboard/penelitian/create') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-newspaper"></i>
                         <p>
                             Artikel

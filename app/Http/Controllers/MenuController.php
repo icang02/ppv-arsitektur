@@ -11,7 +11,6 @@ class MenuController extends Controller
     public function index($menu, $slug)
     {
         if ($menu == 'profil') $data = Menu::where('slug', $slug)->get()->first();
-        if ($menu == 'dokumen') $data = Menu::where('slug', $slug)->get()->first();
         if ($menu == 'akademik') $data = Menu::where('slug', $slug)->get()->first();
 
         return view('home.page', [
@@ -24,10 +23,6 @@ class MenuController extends Controller
         if (request()->is('dashboard/profil*')) {
             $data = Menu::where('kategory', 'profil')->get();
             $slug = 'profil';
-        }
-        if (request()->is('dashboard/dokumen*')) {
-            $data = Menu::where('kategory', 'dokumen')->get();
-            $slug = 'dokumen';
         }
         if (request()->is('dashboard/akademik*')) {
             $data = Menu::where('kategory', 'akademik')->get();
@@ -50,11 +45,11 @@ class MenuController extends Controller
         if (request()->is('dashboard/profil*')) {
             $slug = 'profil';
         }
-        if (request()->is('dashboard/dokumen*')) {
-            $slug = 'dokumen';
-        }
         if (request()->is('dashboard/akademik*')) {
             $slug = 'akademik';
+        }
+        if (request()->is('dashboard/survei*')) {
+            $slug = 'survei';
         }
         Menu::Create([
             'title' => ucfirst($request->title),
@@ -68,9 +63,6 @@ class MenuController extends Controller
     {
         if (request()->is('dashboard/profil*')) {
             $slug = 'profil';
-        }
-        if (request()->is('dashboard/dokumen*')) {
-            $slug = 'dokumen';
         }
         if (request()->is('dashboard/akademik*')) {
             $slug = 'akademik';
@@ -88,18 +80,9 @@ class MenuController extends Controller
 
     public function menuProcessUpdate(Request $request, Menu $menu)
     {
-        // $request->validate([
-        //     'title' => 'required',
-        //     'image' => 'required',
-        //     'content' => 'required',
-        // ]);
-        // dd($menu);
 
         if (request()->is('dashboard/profil*')) {
             $slug = 'profil';
-        }
-        if (request()->is('dashboard/dokumen*')) {
-            $slug = 'dokumen';
         }
         if (request()->is('dashboard/akademik*')) {
             $slug = 'akademik';
@@ -134,11 +117,11 @@ class MenuController extends Controller
         if (request()->is('dashboard/profil*')) {
             $slug = 'profil';
         }
-        if (request()->is('dashboard/dokumen*')) {
-            $slug = 'dokumen';
-        }
         if (request()->is('dashboard/akademik*')) {
             $slug = 'akademik';
+        }
+        if (request()->is('dashboard/survei*')) {
+            $slug = 'survei';
         }
 
         $data = Menu::find($id);

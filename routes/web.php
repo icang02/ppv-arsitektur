@@ -77,6 +77,8 @@ Route::delete('/dashboard/profil/delete/{id}', [MenuController::class, 'menuDele
 Route::get('/dashboard/survei', [MenuController::class, 'menu'])->middleware('auth')->can('admin');
 Route::get('/dashboard/survei/{menu:slug}', [MenuController::class, 'menuEdit'])->middleware('auth')->can('admin');
 Route::put('/dashboard/survei/{menu}', [MenuController::class, 'menuProcessUpdate']);
+Route::post('/dashboard/survei/store', [MenuController::class, 'menuStore']);
+Route::delete('/dashboard/survei/delete/{id}', [MenuController::class, 'menuDelete']);
 
 // dashboard prestasi
 Route::get('/dashboard/prestasi', [PrestasiController::class, 'indexAdmin'])->middleware('auth');
@@ -90,13 +92,6 @@ Route::get('/dashboard/prestasi/foto/{id}', [FotoPrestasiController::class, 'ind
 Route::post('/dashboard/prestasi/foto/store', [FotoPrestasiController::class, 'store']);
 Route::delete('/dashboard/prestasi/foto/destroy/{foto}', [FotoPrestasiController::class, 'destroy']);
 
-// dashboard profil
-Route::get('/dashboard/dokumen', [MenuController::class, 'menu'])->middleware('auth')->can('admin');
-Route::get('/dashboard/dokumen/{menu:slug}', [MenuController::class, 'menuEdit'])->middleware('auth')->can('admin');
-Route::put('/dashboard/dokumen/{menu}', [MenuController::class, 'menuProcessUpdate']);
-Route::post('/dashboard/dokumen/store', [MenuController::class, 'menuStore']);
-Route::put('/dashboard/dokumen/update/{id}', [MenuController::class, 'menuUpdate']);
-Route::delete('/dashboard/dokumen/delete/{id}', [MenuController::class, 'menuDelete']);
 
 // dashboard akademik
 Route::get('/dashboard/akademik', [MenuController::class, 'menu'])->middleware('auth')->can('admin');

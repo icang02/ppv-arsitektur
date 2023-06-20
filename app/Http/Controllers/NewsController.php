@@ -34,55 +34,55 @@ class NewsController extends Controller
         ]);
     }
 
-    public function indexPengumuman($kategory)
-    {
-        $data = News::where('kategory', $kategory)->paginate(9);
-        // dd($data);
-        return view('home.list-news', [
-            'news' => $data,
-            'kategory' => $kategory,
-            'menu' => 'pengumuman'
-        ]);
-    }
+    // public function indexPengumuman($kategory)
+    // {
+    //     $data = News::where('kategory', $kategory)->paginate(9);
+    //     // dd($data);
+    //     return view('home.list-news', [
+    //         'news' => $data,
+    //         'kategory' => $kategory,
+    //         'menu' => 'pengumuman'
+    //     ]);
+    // }
 
-    public function pengumumanDetail($kategory, $slug)
-    {
-        $data = News::where('slug', $slug)->firstOrFail();
-        $data->increment('views');
-        $allnews = News::whereIn('kategory', ['jadwal_ujian','seminar','kuliah_umum'])->orderBy('date', 'desc')->take(4)->get();
+    // public function pengumumanDetail($kategory, $slug)
+    // {
+    //     $data = News::where('slug', $slug)->firstOrFail();
+    //     $data->increment('views');
+    //     $allnews = News::whereIn('kategory', ['jadwal_ujian','seminar','kuliah_umum'])->orderBy('date', 'desc')->take(4)->get();
 
-        // dd($data);  
-        return view('home.detail-news', [
-            'news' => $data,
-            'allnews' => $allnews,
-            'kategori' => str()->title($kategory),
-        ]);
-    }
+    //     // dd($data);  
+    //     return view('home.detail-news', [
+    //         'news' => $data,
+    //         'allnews' => $allnews,
+    //         'kategori' => str()->title($kategory),
+    //     ]);
+    // }
 
-    public function indexAktivitas($kategory)
-    {
-        $data = News::where('kategory', $kategory)->paginate(9);
-        // dd($data);
-        return view('home.list-news', [
-            'news' => $data,
-            'kategory' => $kategory,
-            'menu' => 'aktivitas'
-        ]);
-    }
+    // public function indexAktivitas($kategory)
+    // {
+    //     $data = News::where('kategory', $kategory)->paginate(9);
+    //     // dd($data);
+    //     return view('home.list-news', [
+    //         'news' => $data,
+    //         'kategory' => $kategory,
+    //         'menu' => 'aktivitas'
+    //     ]);
+    // }
 
-    public function aktivitasDetail($kategory, $slug)
-    {
-        $data = News::where('slug', $slug)->firstOrFail();
-        $data->increment('views');
-        $allnews = News::whereIn('kategory', ['kegiatan_mahasiswa','ekstrakulikuler','kegiatan_kampus'])->orderBy('date', 'desc')->take(4)->get();
+    // public function aktivitasDetail($kategory, $slug)
+    // {
+    //     $data = News::where('slug', $slug)->firstOrFail();
+    //     $data->increment('views');
+    //     $allnews = News::whereIn('kategory', ['kegiatan_mahasiswa','ekstrakulikuler','kegiatan_kampus'])->orderBy('date', 'desc')->take(4)->get();
 
-        // dd($data);  
-        return view('home.detail-news', [
-            'news' => $data,
-            'allnews' => $allnews,
-            'kategori' => str()->title($kategory),
-        ]);
-    }
+    //     // dd($data);  
+    //     return view('home.detail-news', [
+    //         'news' => $data,
+    //         'allnews' => $allnews,
+    //         'kategori' => str()->title($kategory),
+    //     ]);
+    // }
 
     public function indexArtikel($kategory)
     {
@@ -138,59 +138,59 @@ class NewsController extends Controller
     }
     // end dashboard berita 
 
-    // dashboard pengumuman 
-    public function pengumuman()
-    {
-        $artikel = News::whereIn('kategory',['jadwal_ujian','seminar','kuliah_umum'])->orderBy('date', 'desc')->get();
-        return view('admin.artikel', [
-            'artikel' => $artikel,
-            'title' => "Pengumuman"
-        ]);
-    }
+    // // dashboard pengumuman 
+    // public function pengumuman()
+    // {
+    //     $artikel = News::whereIn('kategory',['jadwal_ujian','seminar','kuliah_umum'])->orderBy('date', 'desc')->get();
+    //     return view('admin.artikel', [
+    //         'artikel' => $artikel,
+    //         'title' => "Pengumuman"
+    //     ]);
+    // }
 
-    public function pengumumanForm($id = null)
-    {
+    // public function pengumumanForm($id = null)
+    // {
 
-        if (isset($id)) {
-            $data = News::find($id);
-            return view('admin.form-artikel', [
-                'data' => $data,
-                'title' => 'Update Pengumuman',
-            ]);
-        } else {
-            return view('admin.form-artikel', [
-                'title' => 'Tambah Pengumuman'
-            ]);
-        }
-    }
-    // end dashboard pengumuman 
+    //     if (isset($id)) {
+    //         $data = News::find($id);
+    //         return view('admin.form-artikel', [
+    //             'data' => $data,
+    //             'title' => 'Update Pengumuman',
+    //         ]);
+    //     } else {
+    //         return view('admin.form-artikel', [
+    //             'title' => 'Tambah Pengumuman'
+    //         ]);
+    //     }
+    // }
+    // // end dashboard pengumuman 
 
-    // dashboard aktivitas 
-    public function aktivitas()
-    {
-        $artikel = News::whereIn('kategory',['kegiatan_mahasiswa','ekstrakulikuler','kegiatan_kampus'])->orderBy('date', 'desc')->get();
-        return view('admin.artikel', [
-            'artikel' => $artikel,
-            'title' => "Aktivitas"
-        ]);
-    }
+    // // dashboard aktivitas 
+    // public function aktivitas()
+    // {
+    //     $artikel = News::whereIn('kategory',['kegiatan_mahasiswa','ekstrakulikuler','kegiatan_kampus'])->orderBy('date', 'desc')->get();
+    //     return view('admin.artikel', [
+    //         'artikel' => $artikel,
+    //         'title' => "Aktivitas"
+    //     ]);
+    // }
 
-    public function aktivitasForm($id = null)
-    {
+    // public function aktivitasForm($id = null)
+    // {
 
-        if (isset($id)) {
-            $data = News::find($id);
-            return view('admin.form-artikel', [
-                'data' => $data,
-                'title' => 'Update Aktivitas',
-            ]);
-        } else {
-            return view('admin.form-artikel', [
-                'title' => 'Tambah Aktivitas'
-            ]);
-        }
-    }
-    // end dashboard aktivitas 
+    //     if (isset($id)) {
+    //         $data = News::find($id);
+    //         return view('admin.form-artikel', [
+    //             'data' => $data,
+    //             'title' => 'Update Aktivitas',
+    //         ]);
+    //     } else {
+    //         return view('admin.form-artikel', [
+    //             'title' => 'Tambah Aktivitas'
+    //         ]);
+    //     }
+    // }
+    // // end dashboard aktivitas 
 
     // dashboard artikel
     public function artikel()

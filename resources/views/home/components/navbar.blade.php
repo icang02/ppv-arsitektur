@@ -1,6 +1,7 @@
 @php
     $profil = App\Models\Menu::where('kategory', 'profil')->get();
     $akademik = App\Models\Menu::where('kategory', 'akademik')->get();
+    $survei = App\Models\Menu::where('kategory', 'survei')->get();
     $sarana = App\Models\Fasilitas::all();
 @endphp
 <style>
@@ -90,7 +91,7 @@
                 </div>
             </div>
 
-            <div class="nav-item dropdown">
+            {{-- <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle {{ request()->is('pengumuman*') ? 'active' : '' }}"
                     data-bs-toggle="dropdown">Pengumuman</a>
                 <div class="dropdown-menu bg-light m-0">
@@ -103,9 +104,9 @@
                         class="dropdown-item {{ request()->is('pengumuman/kuliah_umum*') ? 'active' : '' }}">Kuliah
                         Umum</a>
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="nav-item dropdown">
+            {{-- <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle {{ request()->is('aktivitas*') ? 'active' : '' }}"
                     data-bs-toggle="dropdown">Aktivitas</a>
                 <div class="dropdown-menu bg-light m-0">
@@ -118,7 +119,7 @@
                         class="dropdown-item {{ request()->is('aktivitas/kegiatan_kampus*') ? 'active' : '' }}">Kegiatan
                         Kampus</a>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle {{ request()->is('sarana_umum*') ? 'active' : '' }}"
@@ -173,12 +174,10 @@
                 <a href="#" class="nav-link dropdown-toggle {{ request()->is('survei*') ? 'active' : '' }}"
                     data-bs-toggle="dropdown">E-Survei</a>
                 <div class="dropdown-menu bg-light m-0">
-                    <a href="{{ route('menuSurvei', 'survei-visi-misi-ppv') }}"
-                        class="dropdown-item {{ request()->is('survei/survei-visi-misi-ppv') ? 'active' : '' }}">Survei
-                        Visi-Misi</a>
-                    <a href="{{ route('menuSurvei', 'survei-kepuasan-pengguna-ppv') }}"
-                        class="dropdown-item {{ request()->is('survei/survei-kepuasan-pengguna-ppv') ? 'active' : '' }}">Survei
-                        Kepuasan</a>
+                    @foreach ($survei as $pf)
+                        <a href="{{ url("/survei/$pf->slug") }}"
+                            class="dropdown-item {{ request()->is("survei/$pf->slug") ? 'active' : '' }}">{{ $pf->title }}</a>
+                    @endforeach
 
 
                 </div>
