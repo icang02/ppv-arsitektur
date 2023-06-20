@@ -113,6 +113,8 @@ class MenuController extends Controller
         }
         if ($request->has('image')) {
             $image = $request->file('image')->store("menu-$slug");
+        }else {
+            $image = $menu->image;
         }
 
         $content = str_replace('<table>', '<table class="table table-bordered"', $request->content);

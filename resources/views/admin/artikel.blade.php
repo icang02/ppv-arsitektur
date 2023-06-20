@@ -56,7 +56,7 @@
                                                     <td>
                                                         @php
                                                             if (request()->is('dashboard/news*')) {
-                                                                $text = 'prestasi';
+                                                                $text = 'news';
                                                             } elseif (request()->is('dashboard/pengumuman*')) {
                                                                 $text = 'pengumuman';
                                                             } elseif (request()->is('dashboard/aktivitas*')) {

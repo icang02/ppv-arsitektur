@@ -34,18 +34,14 @@
                         @if ($nws->image == null)
                             <img class="img-fluid" src="{{ asset('home-assets') }}/img/service-1.jpg" alt="">
                         @else
-                            <img class="img-fluid" src="{{ asset('storage/' . $nws->image) }}" alt="">
+                            <img class="img-fluid" src="{{ asset('storage/' . $nws->image) }}" alt="" style="width: 100%; height: 330px; object-fit: cover;">
                         @endif
                         <div class="service-detail">
                             <div class="service-title d-block pt-4">
                                 @if ($nws->image == null)
-                                    <div
-                                        style="background-image: url({{ asset('home-assets/img/service-1.jpg') }}); height: 150px; width: 100%; background-size: cover; background-position: center;">
-                                    </div>
+                                    <img src="{{ asset('home-assets/img/service-1.jpg') }}" alt="Image" style="width: 100%; height: 120px; object-fit: cover;">
                                 @else
-                                    <div
-                                        style="background-image: url({{ asset("storage/$nws->image") }}); height: 150px; width: 300px; background-size: cover; background-position: center;">
-                                    </div>
+                                    <img src="{{ asset("storage/$nws->image") }}" alt="Image" style="width: 100%; height: 120px; object-fit: cover;">
                                 @endif
                                 <hr class="w-25 mx-auto bg-dark">
                                 <h3 class="mb-0" style="font-size: 1rem;">{{ $nws->title }}
@@ -54,7 +50,10 @@
                             </div>
                             <div class="service-text">
                                 <p class="text-white mb-0" style="font-size: 0.85rem;">
-                                    {!! str()->limit($nws->content, 170, ' ...') !!}</p>
+                                    {!! str()->limit($nws->title, 150, ' ...') !!}
+                                    <i class="d-block mt-3">({{ Carbon\Carbon::createFromFormat('Y-m-d', $nws->date)->format('d F Y') }}
+)</i>
+                                </p>
                             </div>
                         </div>
                         <a class="btn btn-light" href="{{ url("$menu/$kategory/$nws->slug") }}"

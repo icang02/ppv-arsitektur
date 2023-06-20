@@ -107,8 +107,8 @@
                 @foreach ($allnews as $news)
                     <div class="d-flex">
                         @if ($news->image)
-                            <img src="{{ asset("storge/$news->image") }}" alt="Image"
-                                style="width: 90px; height: 80px; object-fit: cover; border-radius: 4px;">
+                            <img src="{{ asset("storage/$news->image") }}" alt="Image"
+                                style="width: 100%; height: 80px; object-fit: cover; border-radius: 4px;">
                         @else
                             <img src="https://asset.kompas.com/crops/25hhF38dli3VSfKY5g8lIbzRDxA=/0x0:1000x667/750x500/data/photo/2022/05/01/626e236fbfeb9.png"
                                 alt="Image" style="width: 90px; height: 80px; object-fit: cover; border-radius: 4px;">

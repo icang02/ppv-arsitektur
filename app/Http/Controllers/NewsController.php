@@ -128,7 +128,7 @@ class NewsController extends Controller
             $data = News::find($id);
             return view('admin.form-artikel', [
                 'data' => $data,
-                'title' => 'Tambah Berita',
+                'title' => 'Update Berita',
             ]);
         } else {
             return view('admin.form-artikel', [
