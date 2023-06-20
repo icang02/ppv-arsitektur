@@ -11,7 +11,7 @@ class NewsController extends Controller
     //HALAMAN DEPAN
     public function index($kategory)
     {
-        $data = News::where('kategory', $kategory)->paginate(9);
+        $data = News::where('kategory', $kategory)->orderBy('date', 'desc')->paginate(9);
         // dd($data);
         return view('home.list-news', [
             'news' => $data,
@@ -229,13 +229,18 @@ class NewsController extends Controller
             $image = $request->file('image')->store('img-news');
         }
 
+        $content = str_replace('<table>', '<table class="table table-bordered"', $request->content);
+        $content = str_replace('<figure class="table">', '<figure class="table-responsive">', $content);
+        $content = str_replace('<img', '<img id="gambar-berita"', $request->content);
+        $content = str_replace('<figure class="image">', '<figure class="image text-center">', $content);
+
         News::Create([
             'title' => ucfirst($request->title),
             'slug' => uniqid() . '-' . str()->slug($request->title),
             'kategory' => $request->kategory,
             'date' => $request->date,
             'image' => $image ?? NULL,
-            'content' => $request->content
+            'content' => $content
         ]);
 
         if (in_array($request->kategory, ['berita','pengumuman','agenda'])) {
@@ -263,13 +268,18 @@ class NewsController extends Controller
             $image = $request->file('image')->store('img-news');
         }
 
+        $content = str_replace('<table>', '<table class="table table-bordered"', $request->content);
+        $content = str_replace('<figure class="table">', '<figure class="table-responsive">', $content);
+        $content = str_replace('<img', '<img id="gambar-berita"', $request->content);
+        $content = str_replace('<figure class="image">', '<figure class="image text-center">', $content);
+
         $data->update([
             'title' => ucfirst($request->title),
             'slug' => uniqid() . '-' . str()->slug($request->title),
             'kategory' => $request->kategory,
             'date' => $request->date,
             'image' => $image,
-            'content' => $request->content
+            'content' => $content
         ]);
 
         if (in_array($request->kategory, ['berita','pengumuman','agenda'])) {

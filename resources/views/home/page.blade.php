@@ -5,9 +5,37 @@
         body {
             background-color: #EFEFEF
         }
+
+        #gambar-berita {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        @media only screen and (max-width: 576px) {
+            #gambar-berita {
+                width: 100%;
+                height: 100%;
+            }
+        }
     </style>
+
+    @php
+        if ($menu->image !== null) {
+            $image = "storage/$menu->image";
+            if (request()->is('akademik/kalender-akademik*')) {
+                $image = 'home-assets/img/bg-page.jpg';
+            }
+        } else {
+            $image = 'home-assets/img/bg-page.jpg';
+        }
+    @endphp
+
     <!-- Page Header Start -->
-    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn"
+        style="background: linear-gradient(rgba(24, 29, 56, .4), rgba(24, 29, 56, .4)), url({{ asset($image) }}); background-size: cover; background-position: bottom;"
+        data-wow-delay="0.1s">
         <div class="container py-5">
             <h1 class="display-3 text-white animated slideInRight" style="opacity: 0">Services</h1>
             <nav aria-label="breadcrumb">
@@ -34,7 +62,14 @@
                 <iframe src="{{ $menu->content }}?embedded=true" width="100%" height="1080" frameborder="0"
                     marginheight="0" marginwidth="0">Memuat…</iframe>
             @else
-                <p class="m-4" style="font-size: 0.85rem;">{!! $menu->content !!}</p>
+                <p class="mt-4 ms-4 me-4 mb-1" style="font-size: 0.85rem;">{!! $menu->content !!}</p>
+                @if (request()->is('akademik/kalender-akademik'))
+                    <div class="text-center">
+                        <a href="{{ asset("storage/$menu->image") }}">
+                            <button class="btn-primary btn">Unduh File Di Sini</button>
+                        </a>
+                    </div>
+                @endif
             @endif
         </div>
     </div>

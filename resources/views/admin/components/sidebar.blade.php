@@ -2,20 +2,15 @@
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/dashboard" class="brand-link">
-        <img src="{{ asset('home-assets/img/logo-uho.png') }}" width="50" alt="ppv uho" widht="50px"
-            class="img-fluid">
-        PPV Arsitektur
+    <a href="/dashboard" class="brand-link text-center">
+        <img src="{{ asset('home-assets/img/logo-uho.png') }}" width="125" alt="ppv uho" widht="50px"
+            class="img-fluid"> <br>
+        Prodi D3 Arsitektur
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 text-center">
-            <div class="info">
-                <a href="#" class="d-block">Program Pendidikan Vokasi</a>
-            </div>
-        </div>
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -59,7 +54,7 @@
                                 <a href="{{ url('/dashboard/visi-misi') }}"
                                     class="nav-link {{ request()->is('dashboard/visi-misi') ? 'active' : '' }}">
                                     <i class="far fa-star nav-icon"></i>
-                                    <p>Visi - Misi</p>
+                                    <p>Video Profil $ Visi - Misi</p>
                                 </a>
                             </li>
                         </ul>

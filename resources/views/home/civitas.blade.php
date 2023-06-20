@@ -34,7 +34,13 @@
         }
     </style>
     <!-- Page Header Start -->
-    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+    @php
+        $image = 'home-assets/img/bg-page.jpg';
+    @endphp
+
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn"
+        style="background: linear-gradient(rgba(24, 29, 56, .4), rgba(24, 29, 56, .4)), url({{ asset($image) }}); background-size: cover; background-position: bottom;"
+        data-wow-delay="0.1s">
         <div class="container py-5">
             <h1 class="display-3 text-white animated slideInRight" style="opacity: 0">Services</h1>
             <nav aria-label="breadcrumb">

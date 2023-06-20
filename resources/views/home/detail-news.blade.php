@@ -7,7 +7,13 @@
         }
     </style>
     <!-- Page Header Start -->
-    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+    @php
+        $image = 'home-assets/img/bg-page.jpg';
+    @endphp
+
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn"
+        style="background: linear-gradient(rgba(24, 29, 56, .4), rgba(24, 29, 56, .4)), url({{ asset($image) }}); background-size: cover; background-position: bottom;"
+        data-wow-delay="0.1s">
         <div class="container py-5">
             <h1 class="display-3 text-white animated slideInRight" style="opacity: 0">Services</h1>
             <nav aria-label="breadcrumb">
@@ -40,7 +46,7 @@
 
         #gambar-berita {
             width: 100%;
-            height: 300px;
+            height: 100%;
             object-fit: cover;
             border-radius: 4px;
         }
@@ -61,7 +67,7 @@
 
             #gambar-berita {
                 width: 100%;
-                height: 150px;
+                height: 100%;
             }
         }
     </style>
@@ -79,12 +85,14 @@
         <div class="d-flex gap-3 align-items-start" id="container-berita">
             {{-- Content berita --}}
             <div class="p-lg-5 px-4 py-5 bg-white shadow-lg" id="berita">
-                @if ($news->image)
-                    <img src="{{ asset("storage/$news->image") }}" alt="Image" id="gambar-berita">
-                @else
-                    <img src="https://asset.kompas.com/crops/25hhF38dli3VSfKY5g8lIbzRDxA=/0x0:1000x667/750x500/data/photo/2022/05/01/626e236fbfeb9.png"
-                        alt="Image" id="gambar-berita">
-                @endif
+                <div>
+                    @if ($news->image)
+                        <img src="{{ asset("storage/$news->image") }}" width="" alt="Image" id="gambar-berita">
+                    @else
+                        <img src="https://asset.kompas.com/crops/25hhF38dli3VSfKY5g8lIbzRDxA=/0x0:1000x667/750x500/data/photo/2022/05/01/626e236fbfeb9.png"
+                            alt="Image" id="gambar-berita">
+                    @endif
+                </div>
                 <h5 class="mt-3">{{ $news->title }}</h5>
                 <p class="text-muted mt-3" style="font-size: 0.85rem">
                     <i class="fa-sharp fa-solid fa-calendar-days me-1"></i>

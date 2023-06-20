@@ -18,6 +18,7 @@ use App\Http\Controllers\LinkController;
 use App\Http\Controllers\PenelitianController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\SponsorController;
+use App\Http\Controllers\CkeditorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,7 @@ Route::get('/gallery', [GalleryController::class, 'index']);
 
 Route::get('/dashboard', [IndexController::class, 'dashboard'])->middleware('auth');
 
+Route::post('image-upload', [CkeditorController::class, 'storeImage'])->name('image.upload');
 
 // Auth Controller
 Route::get('admin', [AuthController::class, 'login'])->name('login')->middleware('guest');
@@ -52,8 +54,10 @@ Route::get('logout', [AuthController::class, 'logout'])->middleware('auth');
 
 // dashboard alumni
 Route::get('/dashboard/alumni', [AlumniController::class, 'alumniAdmin']);
-
-Route::get('/dashboard/alumni/{id}', [AlumniController::class, 'detailalumni']);
+Route::get('/dashboard/alumni/view/{id}', [AlumniController::class, 'detailalumni']);
+Route::get('/dashboard/alumni/form/{id?}', [AlumniController::class, 'formalumni']);
+Route::post('/dashboard/alumni/form/store', [AlumniController::class, 'addalumni']);
+Route::put('/dashboard/alumni/form/update/{id}', [AlumniController::class, 'updatealumni']);
 Route::delete('/dashboard/alumni/{id}', [AlumniController::class, 'destroy']);
 
 // dashbard Sliders

@@ -102,6 +102,8 @@ class MenuController extends Controller
 
         $content = str_replace('<table>', '<table class="table table-bordered"', $request->content);
         $content = str_replace('<figure class="table">', '<figure class="table-responsive">', $content);
+        $content = str_replace('<img', '<img id="gambar-berita"', $request->content);
+        $content = str_replace('<figure class="image">', '<figure class="image text-center">', $content);
 
         $menu->update([
             'title' => ucfirst($request->title),

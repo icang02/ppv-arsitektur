@@ -29,6 +29,7 @@ class AlumniController extends Controller
             'is_pns' => 'required',
             'kesesuaian_pekerjaan' => 'required',
             'lama_menganggur' => 'required',
+            'saran' => 'required',
         ];
         $validatedData = $request->validate($rules);
         Alumni::create($validatedData);
@@ -42,6 +43,68 @@ class AlumniController extends Controller
             'title' => 'Alumni',
             'alumni' => Alumni::all(),
         ]);
+    }
+
+    public function formalumni($id = null){
+
+        if (isset($id)) {
+            $data = Alumni::find($id);
+            return view('admin.form-alumni', [
+                'data' => $data,
+                'title' => 'Update Data Alumni',
+            ]);
+        } else {
+            return view('admin.form-alumni', [
+                'title' => 'Tambah Data Alumni'
+            ]);
+        }
+    }
+
+    public function addalumni(Request $request){
+        $rules = [
+            'nama' => 'required',
+            'jenis_kelamin' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'alamat' => 'required',
+            'email' => 'required',
+            'hp' => 'required',
+            'tanggal_masuk' => 'required',
+            'bulan_tahun_lulus' => 'required',
+            'status_kerja' => 'required',
+            'is_pns' => 'required',
+            'kesesuaian_pekerjaan' => 'required',
+            'lama_menganggur' => 'required',
+            'saran' => 'required',
+        ];
+        $validatedData = $request->validate($rules);
+        Alumni::create($validatedData);
+
+        return redirect('dashboard/alumni')->with('success', 'Terimas kasih, data Anda berhasil ditambahkan.');
+    }
+
+    public function updatealumni(Request $request, $id){
+        $rules = [
+            'nama' => 'required',
+            'jenis_kelamin' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'alamat' => 'required',
+            'email' => 'required',
+            'hp' => 'required',
+            'tanggal_masuk' => 'required',
+            'bulan_tahun_lulus' => 'required',
+            'status_kerja' => 'required',
+            'is_pns' => 'required',
+            'kesesuaian_pekerjaan' => 'required',
+            'lama_menganggur' => 'required',
+            'saran' => 'required',
+        ];
+        $alumni = Alumni::findOrFail($id);
+        $validatedData = $request->validate($rules);
+        $alumni->update($validatedData);
+
+        return redirect('dashboard/alumni')->with('success', 'Terimas kasih, data Anda berhasil diupdate.');
     }
 
     public function detailalumni($id)

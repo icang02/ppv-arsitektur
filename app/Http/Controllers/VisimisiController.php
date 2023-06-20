@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Visimisi;
+use Illuminate\Support\Facades\Storage;
 
 class VisimisiController extends Controller
 {
@@ -20,10 +21,17 @@ class VisimisiController extends Controller
     public function visimisiUpdate(Request $request, $id)
     {
         $data = Visimisi::find($id);
+        $image = $data->image;
+
+        if ($request->file('image')) {
+            Storage::delete($data->image);
+            $image = $request->file('image')->store('img-sliders');
+        }
 
         $data->update([
             'title' => $request->title,
-            'content' => $request->content
+            'content' => $request->content,
+            'image' => $image
         ]);
         return redirect('dashboard/visi-misi')->with('sukses', 'Data berhasil diupdate');
     }

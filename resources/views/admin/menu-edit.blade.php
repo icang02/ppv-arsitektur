@@ -78,16 +78,24 @@
                                     @if (!request()->is('dashboard/survei*'))
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="image">Gambar</label>
-                                                <input id="image" onchange="previewImage()" accept="image/*"
-                                                    type="file" class="form-control" id="image" placeholder="image"
-                                                    name="image">
-                                                @if ($menu->image != null)
-                                                    <img src="{{ asset("storage/$menu->image") }}" alt="Gambar"
-                                                        class="img-preview img-thumbnail mt-2" width="150">
+                                                @if (request()->is('dashboard/akademik/kalender-akademik'))
+                                                    <label for="image">File</label>
+                                                    <p>Masukan File Kalender Akademik Di Sini</p>
+                                                    <input id="image" onchange="previewImage()" accept="file/*"
+                                                        type="file" class="form-control" id="image"
+                                                        placeholder="image" name="image">
                                                 @else
-                                                    <img alt="Gambar" class="img-preview img-thumbnail mt-2"
-                                                        width="150" style="display: none;">
+                                                    <label for="image">Gambar</label>
+                                                    <input id="image" onchange="previewImage()" accept="image/*"
+                                                        type="file" class="form-control" id="image"
+                                                        placeholder="image" name="image">
+                                                    @if ($menu->image != null)
+                                                        <img src="{{ asset("storage/$menu->image") }}" alt="Gambar"
+                                                            class="img-preview img-thumbnail mt-2" width="150">
+                                                    @else
+                                                        <img alt="Gambar" class="img-preview img-thumbnail mt-2"
+                                                            width="150" style="display: none;">
+                                                    @endif
                                                 @endif
                                             </div>
                                         </div>
@@ -116,14 +124,17 @@
 
                                 <div class="row">
                                     <div class="col-12">
-                                        <label for="editor">Isi</label>
                                         <div>
-                                            @if (request()->is('dashboard/survei/survei-visi-misi-ppv'))
-                                                <input type="text" name="content" class="form-control"
+                                            @if (request()->is('dashboard/survei*'))
+                                                <label for="editor">Link Survei</label>
+                                                <p>Isikan link g-form anda di sini (ex :
+                                                    https://forms.gle/kMnKcm9H86nZA)</p>
+                                                <input type="url" name="content" class="form-control"
                                                     value="{{ old('content', $menu->content) }}"
                                                     placeholder="Shortcut link google form">
                                             @else
-                                                <textarea name="content" id="editor">{{ old('content', $menu->content) }}</textarea>
+                                                <label for="editor">Isi</label>
+                                                <textarea id="editor" name="content">{{ old('content', $menu->content) }}</textarea>
                                             @endif
                                             @error('content')
                                                 <h6 class="text-danger">{{ $message }}</h6>

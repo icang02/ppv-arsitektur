@@ -28,6 +28,7 @@
                                         <th style="width: 50px">Aksi</th>
                                         <th>Judul</th>
                                         <th>Isi</th>
+                                        <th style="width: 200px">Gambar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -41,6 +42,8 @@
                                             </td>
                                             <td>{{ $vm->title }}</td>
                                             <td>{!! $vm->content !!}</td>
+                                            <td><img style="width: 100%" src="{{ asset("storage/$vm->image") }}"
+                                                    alt=""></td>
                                         </tr>
 
                                         {{-- modal update data --}}
@@ -72,14 +75,45 @@
                                                                         </div>
                                                                     </div>
 
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label for="image">Gambar</label>
+                                                                            <img @if (isset($vm)) @if ($vm->image != null) src="{{ asset("storage/$vm->image") }}" @else src="" @endif
+                                                                                @endif
+                                                                            alt="Image"
+                                                                            class="img-preview img-thumbnail mb-3"
+                                                                            @if (!isset($vm)) style="display: none" @else style="display: block" @endif
+                                                                            width="300">
+                                                                            <input type="file" onchange="previewImage()"
+                                                                                class="form-control @error('image') is-invalid @enderror"
+                                                                                value="{{ $vm->image }}" id="image"
+                                                                                name="image">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    @push('script')
+                                                                        <script>
+                                                                            function previewImage() {
+                                                                                const image = document.querySelector('#image');
+                                                                                const imgPreview = document.querySelector('.img-preview');
+
+                                                                                imgPreview.style.display = 'block';
+
+                                                                                const oFReader = new FileReader();
+                                                                                oFReader.readAsDataURL(image.files[0]);
+
+                                                                                oFReader.onload = function(oFREvent) {
+                                                                                    imgPreview.src = oFREvent.target.result;
+                                                                                }
+                                                                            }
+                                                                        </script>
+                                                                    @endpush
+
                                                                     <div class="row">
                                                                         <div class="col-12">
                                                                             <label
                                                                                 for="summernote{{ $vm->id }}">Isi</label>
                                                                             <textarea class="@error('content') is-invalid @enderror" name="content" id="editor{{ $vm->id }}" required>{{ $vm->content }}</textarea>
-                                                                            {{-- @error('content')
-                                                                                <h6 class="text-danger">{{ $message }}</h6>
-                                                                            @enderror --}}
                                                                         </div>
                                                                     </div>
 

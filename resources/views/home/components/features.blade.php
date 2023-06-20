@@ -39,11 +39,7 @@
             <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.5s">
                 <p class="fw-medium text-uppercase text-primary mb-2">Video Profil</p>
                 <h1 class="display-5 mb-4" style="font-size: 2.5rem;">Profil PPV Arsitektur</h1>
-                <p class="mb-4 align-justify" style="font-size: 0.85rem;">Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit.
-                    Quisquam amet impedit, id necessitatibus, commodi sint quas laboriosam at fuga alias asperiores
-                    eaque provident reiciendis temporibus repellat nemo pariatur. Unde est sit doloribus consequuntur
-                    voluptate voluptatum fugit, optio dolorem amet! Esse?
+                <p class="mb-4 align-justify" style="font-size: 0.85rem;">{!! $visimisi[2]->content !!}
                 </p>
                 {{-- <div class="row gy-4">
                     <div class="col-12">

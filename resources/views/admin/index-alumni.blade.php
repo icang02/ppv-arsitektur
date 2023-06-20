@@ -10,6 +10,9 @@
                     @endif
                     <div class="card">
                         <div class="card-body">
+                            <a href="{{ url('/dashboard/alumni/form') }}"><button class="btn btn-primary mb-2"><i
+                                        class="fas fa-plus"></i>
+                                    Tambah Data Alumni</button></a>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
@@ -26,11 +29,16 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>
-                                                <button onclick="window.location.href='/dashboard/alumni/{{ $alu->id }}'" class="btn-sm btn-warning">
-                                                        <i class="fas fa-edit"></i></button>
+                                                <button
+                                                    onclick="window.location.href='/dashboard/alumni/view/{{ $alu->id }}'"
+                                                    class="btn-sm btn-info">
+                                                    <i class="fas fa-eye"></i></button>
+                                                <button
+                                                    onclick="window.location.href='/dashboard/alumni/form/{{ $alu->id }}'"
+                                                    class="btn-sm btn-warning">
+                                                    <i class="fas fa-edit"></i></button>
 
-                                                <form class="d-inline"
-                                                action="{{ url("/dashboard/alumni/$alu->id") }}"
+                                                <form class="d-inline" action="{{ url("/dashboard/alumni/$alu->id") }}"
                                                     method="post">
                                                     @csrf
                                                     @method('delete')

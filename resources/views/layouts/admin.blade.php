@@ -178,6 +178,79 @@
     <script>
         ClassicEditor
             .create(document.querySelector('#editor'), {
+                // Konfigurasi CKEditor
+                ckfinder: {
+                    uploadUrl: "{{ route('image.upload') . '?_token=' . csrf_token() }}"
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor1'), {
+                // Konfigurasi CKEditor
+                ckfinder: {
+                    uploadUrl: "{{ route('image.upload') . '?_token=' . csrf_token() }}"
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor2'), {
+                // Konfigurasi CKEditor
+                ckfinder: {
+                    uploadUrl: "{{ route('image.upload') . '?_token=' . csrf_token() }}"
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor3'), {
+                // Konfigurasi CKEditor
+                ckfinder: {
+                    uploadUrl: "{{ route('image.upload') . '?_token=' . csrf_token() }}"
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor4'), {
+                // Konfigurasi CKEditor
+                ckfinder: {
+                    uploadUrl: "{{ route('image.upload') . '?_token=' . csrf_token() }}"
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor5'), {
+                // Konfigurasi CKEditor
+                ckfinder: {
+                    uploadUrl: "{{ route('image.upload') . '?_token=' . csrf_token() }}"
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+    {{-- <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
                 height: 400
             })
             .then(editor => {
@@ -186,8 +259,9 @@
             .catch(err => {
                 console.error(err.stack);
             });
-    </script>
-    <script>
+    </script> --}}
+
+    {{-- <script>
         ClassicEditor
             .create(document.querySelector('#editor1'), {
                 height: 400
@@ -222,7 +296,7 @@
             .catch(err => {
                 console.error(err.stack);
             });
-    </script>
+    </script> --}}
 </body>
 
 </html>

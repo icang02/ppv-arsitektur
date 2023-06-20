@@ -47,25 +47,17 @@
     });
 </script>
 
-{{-- Nav Desktop --}}
-<div
-    class="nav-desktop bg-white w-100 px-5 py-3 border-bottom border-2 d-flex align-items-center justify-content-between">
-    <a href="{{ url('/') }}">
-        <img src="{{ url('https://arsitektur.ppv.uho.ac.id/img/logo-12.png') }}" alt="Logo" width="250">
-    </a>
-    {{-- Translate element --}}
-    <div class="g-translate">
-        <div id="google_translate_element"></div>
-    </div>
-</div>
-
-<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-0">
-    <button type="button" class="navbar-toggler my-3 mx-auto" data-bs-toggle="collapse"
-        data-bs-target="#navbarCollapse">
+<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-1">
+    <button type="button" class="navbar-toggler my-3 mx-auto" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav mx-start ms-4 p-1 p-lg-0">
+            <a href="{{ url('/') }}">
+                <img src="{{ asset('home-assets/img/logoarsi.png') }}" alt="Logo" width="250">
+            </a>
+        </div>
         <div class="navbar-nav mx-auto p-1 p-lg-0">
             <a href="{{ url('/') }}" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
 
@@ -90,36 +82,6 @@
                     @endforeach
                 </div>
             </div>
-
-            {{-- <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle {{ request()->is('pengumuman*') ? 'active' : '' }}"
-                    data-bs-toggle="dropdown">Pengumuman</a>
-                <div class="dropdown-menu bg-light m-0">
-                    <a href="{{ route('list-announcement', 'jadwal_ujian') }}"
-                        class="dropdown-item {{ request()->is('pengumuman/jadwal_ujian*') ? 'active' : '' }}">Jadwal
-                        Ujian</a>
-                    <a href="{{ route('list-announcement', 'seminar') }}"
-                        class="dropdown-item {{ request()->is('pengumuman/seminar*') ? 'active' : '' }}">Seminar</a>
-                    <a href="{{ route('list-announcement', 'kuliah_umum') }}"
-                        class="dropdown-item {{ request()->is('pengumuman/kuliah_umum*') ? 'active' : '' }}">Kuliah
-                        Umum</a>
-                </div>
-            </div> --}}
-
-            {{-- <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle {{ request()->is('aktivitas*') ? 'active' : '' }}"
-                    data-bs-toggle="dropdown">Aktivitas</a>
-                <div class="dropdown-menu bg-light m-0">
-                    <a href="{{ route('list-activity', 'kegiatan_mahasiswa') }}"
-                        class="dropdown-item {{ request()->is('aktivitas/kegiatan_mahasiswa*') ? 'active' : '' }}">Kegiatan
-                        Mahasiswa</a>
-                    <a href="{{ route('list-activity', 'ekstrakulikuler') }}"
-                        class="dropdown-item {{ request()->is('aktivitas/ekstrakulikuler*') ? 'active' : '' }}">Ekstrakulikuler</a>
-                    <a href="{{ route('list-activity', 'kegiatan_kampus') }}"
-                        class="dropdown-item {{ request()->is('aktivitas/kegiatan_kampus*') ? 'active' : '' }}">Kegiatan
-                        Kampus</a>
-                </div>
-            </div> --}}
 
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle {{ request()->is('sarana_umum*') ? 'active' : '' }}"
@@ -179,9 +141,14 @@
                             class="dropdown-item {{ request()->is("survei/$pf->slug") ? 'active' : '' }}">{{ $pf->title }}</a>
                     @endforeach
 
-
                 </div>
             </div>
+            <div class="g-translate pt-2">
+                <div id="google_translate_element"></div>
+            </div>
         </div>
+        {{-- <div class="navbar-nav mx-end">
+            
+        </div> --}}
     </div>
 </nav>
