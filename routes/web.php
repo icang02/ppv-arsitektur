@@ -213,7 +213,8 @@ Route::get('/prestasi', [PrestasiController::class, 'index'])->name('prestasi');
 Route::get('/civitas', [DosenController::class, 'indexHome']);
 
 // menu penelitian
-Route::get('/penelitian', [PenelitianController::class, 'indexHome']);
+Route::get('/penelitian', [PenelitianController::class, 'index']);
+Route::get('/pengabdian', [PenelitianController::class, 'index']);
 
 // menu biodata alumni
 Route::get('/biodata-alumni', [AlumniController::class, 'alumniHome']);

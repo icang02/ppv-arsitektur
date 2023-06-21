@@ -147,7 +147,7 @@
                     </a>
                 </li> --}}
 
-                <li
+                {{-- <li
                     class="nav-item {{ request()->is('dashboard/artikel') || request()->is('dashboard/penelitian') || request()->is('dashboard/penelitian/create') ? 'menu-is-opening menu-open' : '' }}">
                     <a href="#"
                         class="nav-link {{ request()->is('dashboard/artikel') || request()->is('dashboard/penelitian') || request()->is('dashboard/penelitian/create') ? 'active' : '' }}">
@@ -173,9 +173,18 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
 
                 @can('admin')
+                    <li class="nav-item">
+                        <a href="{{ url('/dashboard/penelitian') }}"
+                            class="nav-link {{ request()->is('dashboard/penelitian*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-newspaper"></i>
+                            <p>
+                                Jurnal
+                            </p>
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a href="{{ url('/dashboard/alumni') }}"
                             class="nav-link {{ request()->is('dashboard/alumni*') ? 'active' : '' }}">

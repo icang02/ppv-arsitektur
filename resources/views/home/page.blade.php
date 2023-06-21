@@ -65,9 +65,8 @@
                 <p class="mt-4 ms-4 me-4 mb-1" style="font-size: 0.85rem;">{!! $menu->content !!}</p>
                 @if (request()->is('akademik/kalender-akademik'))
                     <div class="text-center">
-                        <a href="{{ asset("storage/$menu->image") }}">
-                            <button class="btn-primary btn">Unduh File Di Sini</button>
-                        </a>
+                        <embed src="{{ asset("storage/$menu->image") }}" type="application/pdf" width="100%"
+                            height="1200px">
                     </div>
                 @endif
             @endif

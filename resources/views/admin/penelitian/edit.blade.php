@@ -70,28 +70,45 @@
                                         <div class="form-group">
                                             <label for="judul">Judul Penelitian</label>
                                             <input type="text" class="form-control @error('judul') is-invalid @enderror"
-                                                value="{{ old('judul', $penelitian->judul) }}" id="judul" name="judul" required>
+                                                value="{{ old('judul', $penelitian->judul) }}" id="judul" name="judul"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="col-md-9">
                                         <div class="form-group">
                                             <label for="nama_dosen">Nama Dosen</label>
-                                            <input type="text" class="form-control @error('nama_dosen') is-invalid @enderror"
-                                                value="{{ old('nama_dosen', $penelitian->nama_dosen) }}" id="nama_dosen" name="nama_dosen" required>
+                                            <input type="text"
+                                                class="form-control @error('nama_dosen') is-invalid @enderror"
+                                                value="{{ old('nama_dosen', $penelitian->nama_dosen) }}" id="nama_dosen"
+                                                name="nama_dosen" required>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="tahun">Tahun</label>
                                             <input type="number" class="form-control @error('tahun') is-invalid @enderror"
-                                                value="{{ old('tahun', $penelitian->tahun) }}" id="tahun" name="tahun" required>
+                                                value="{{ old('tahun', $penelitian->tahun) }}" id="tahun"
+                                                name="tahun" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="link">Link Penelitian</label>
                                             <input type="url" class="form-control @error('link') is-invalid @enderror"
-                                                value="{{ old('link', $penelitian->link) }}" id="link" name="link" required>
+                                                value="{{ old('link', $penelitian->link) }}" id="link" name="link"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="kategori">Kategori</label>
+                                            <select class="form-control" id="kategori" name="kategori" required>
+                                                <option value="">Pilih..</option>
+                                                <option value="penelitian"
+                                                    @if ($penelitian->kategori == 'penelitian') selected @endif>Penelitian</option>
+                                                <option value="pengabdian"
+                                                    @if ($penelitian->kategori == 'pengabdian') selected @endif>Pengabdian</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

@@ -9,19 +9,21 @@
                             alt="Universitas Haluoleo">
                     </center>
                 </div>
-                <h5 class="text-white text-center" style="font-size: 1rem;">DII TEKNIK ARSITEKTUR <br>PPV UHO</h5>
+                <h5 class="text-white text-center" style="font-size: 1rem;">Prodi D3 TEKNIK ARSITEKTUR <br>FAKULTAS
+                    TEKNIK</h5>
             </div>
 
             <div class="col-lg-3 col-md-6 mb-3">
                 <h5 class="text-white mb-4" style="font-size: 1rem;">TENTANG SITUS</h5>
-                <a class="btn btn-link" href="{{ url('/') }}" style="font-size: 0.85rem;">Home</a>
-                <a class="btn btn-link" href="{{ url('/berita/berita') }}" style="font-size: 0.85rem;">Berita</a>
+                <a class="btn btn-link" href="{{ url('https://uho.ac.id/') }}" style="font-size: 0.85rem;">UHO</a>
+                <a class="btn btn-link" href="{{ url('http://eng.uho.ac.id/') }}" style="font-size: 0.85rem;">Fakultas
+                    Teknik</a>
+                <a class="btn btn-link" href="{{ url('https://e-library.uho.ac.id/') }}"
+                    style="font-size: 0.85rem;">Perpustakaan</a>
                 <a class="btn btn-link" href="{{ url('https://siakadbeta.uho.ac.id') }}"
-                    style="font-size: 0.85rem;">Siakad Beta UHO</a>
-                <a class="btn btn-link" href="{{ url('http://e-green.uho.ac.id/') }}" style="font-size: 0.85rem;">SPADA
-                    UHO</a>
-                <a class="btn btn-link" href="{{ url('https://uho.ac.id/') }}" style="font-size: 0.85rem;">Universitas
-                    Halu Oleo</a>
+                    style="font-size: 0.85rem;">Siakad Beta</a>
+                <a class="btn btn-link" href="{{ url('http://e-green.uho.ac.id/') }}"
+                    style="font-size: 0.85rem;">SPADA</a>
             </div>
 
             <div class="col-lg-3 col-md-6 mb-3">
@@ -30,7 +32,8 @@
                     <br>
                     Program Pendidikan Vokasi <br>
                     Kampus Hijau Bumi Tridharma, Anduonohu
-                    Kendari - Indonesia 93232</p>
+                    Kendari - Indonesia 93232
+                </p>
                 <p class="mb-2" style="font-size: 0.85rem;"><i class="fa fa-phone-alt me-3"></i>0821-9219-5800</p>
                 <p class="mb-2" style="font-size: 0.85rem;"><i class="fa fa-envelope me-3"></i>d3arsitektur@uho.ac.id
                 </p>
@@ -50,7 +53,7 @@
                 <center>
                     <div class="mapouter">
                         <div class="gmap_canvas"><iframe width="250" height="200" id="gmap_canvas"
-                                src="https://maps.google.com/maps?q=fakultas%20vokasi%20uho&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                src="https://maps.google.com/maps?q=fakultas%20teknik%20uho&t=&z=13&ie=UTF8&iwloc=&output=embed"
                                 frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
                     </div>
                 </center>

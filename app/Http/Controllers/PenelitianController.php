@@ -7,15 +7,23 @@ use Illuminate\Http\Request;
 
 class PenelitianController extends Controller
 {
-  public function indexHome()
+  public function index()
   {
-    $data = Penelitian::all();
+    if (request()->is('penelitian')) {
+      $data = Penelitian::where('kategori', 'penelitian')->get();
+      $title = 'Penelitian';
+    } else if (request()->is('pengabdian')) {
+      $data = Penelitian::where('kategori', 'pengabdian')->get();
+      $title = 'Pengabdian';
+    }
+
     return view('home.penelitian', [
-      'title' => 'Penelitian',
+      'title' => $title,
       'data' => $data,
     ]);
   }
 
+  // INDEX ADMIN
   public function indexAdmin()
   {
     return view('admin.penelitian.penelitian', [
@@ -37,7 +45,8 @@ class PenelitianController extends Controller
       'judul' => $request->judul,
       'nama_dosen' => $request->nama_dosen,
       'tahun' => $request->tahun,
-      'link' => $request->link
+      'link' => $request->link,
+      'kategori' => $request->kategori,
     ]);
     return back()->with('success', 'Penelitian berhasil ditambahkan.');
   }
@@ -56,11 +65,12 @@ class PenelitianController extends Controller
       'judul' => $request->judul,
       'nama_dosen' => $request->nama_dosen,
       'tahun' => $request->tahun,
-      'link' => $request->link
+      'link' => $request->link,
+      'kategori' => $request->kategori,
     ]);
     return redirect('dashboard/penelitian')->with('success', 'Data penelitian berhasil diupdate.');
   }
-  
+
   public function destroy(Penelitian $penelitian)
   {
     $penelitian->delete();

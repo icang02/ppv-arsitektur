@@ -20,6 +20,7 @@
                                         <th>Judul Penelitian</th>
                                         <th>Nama Dosen</th>
                                         <th>Tahun</th>
+                                        <th>Kategori</th>
                                         <th>Link Penelitian</th>
                                     </tr>
                                 </thead>
@@ -29,7 +30,9 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>
                                                 <span>
-                                                    <button onclick="window.location.href='/dashboard/penelitian/{{ $penelitian->id }}'" class="btn-sm btn-warning">
+                                                    <button
+                                                        onclick="window.location.href='/dashboard/penelitian/{{ $penelitian->id }}'"
+                                                        class="btn-sm btn-warning">
                                                         <i class="fas fa-edit"></i>
                                                     </button>
                                                 </span>
@@ -48,6 +51,7 @@
                                             <td>{{ $penelitian->judul }}</td>
                                             <td>{{ $penelitian->nama_dosen }}</td>
                                             <td>{{ $penelitian->tahun }}</td>
+                                            <td>{{ str()->title($penelitian->kategori) }}</td>
                                             <td>
                                                 <a href="{{ $penelitian->link }}" target="_blank">Lihat</a>
                                             </td>

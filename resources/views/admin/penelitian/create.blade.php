@@ -75,7 +75,8 @@
                                     <div class="col-md-9">
                                         <div class="form-group">
                                             <label for="nama_dosen">Nama Dosen</label>
-                                            <input type="text" class="form-control @error('nama_dosen') is-invalid @enderror"
+                                            <input type="text"
+                                                class="form-control @error('nama_dosen') is-invalid @enderror"
                                                 value="{{ old('nama_dosen') }}" id="nama_dosen" name="nama_dosen" required>
                                         </div>
                                     </div>
@@ -86,11 +87,21 @@
                                                 value="{{ old('tahun') }}" id="tahun" name="tahun" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="link">Link Penelitian</label>
                                             <input type="url" class="form-control @error('link') is-invalid @enderror"
                                                 value="{{ old('link') }}" id="link" name="link" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="kategori">Kategori</label>
+                                            <select class="form-control" id="kategori" name="kategori" required>
+                                                <option value="">Pilih..</option>
+                                                <option value="penelitian">Penelitian</option>
+                                                <option value="pengabdian">Pengabdian</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

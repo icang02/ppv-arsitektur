@@ -17,6 +17,7 @@ return new class extends Migration
       $table->string('nama_dosen');
       $table->string('tahun', 4);
       $table->string('link');
+      $table->enum('kategori', ['penelitian', 'pengabdian']);
     });
   }
 

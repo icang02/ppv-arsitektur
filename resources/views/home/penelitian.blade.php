@@ -59,7 +59,7 @@
             <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s">
                 <p class="fw-medium text-uppercase text-primary mb-4">PPV Arsitektur</p>
                 <hr style="background: #FF5E14; width: 15%; height: 4px; margin: auto; margin-bottom: 0.6rem;">
-                <h1 style="font-size: 2rem;">Penelitian</h1>
+                <h1 style="font-size: 2rem;">{{ $title }}</h1>
                 <hr style="background: #FF5E14; width: 15%; height: 4px; margin: auto; margin-top: 1rem;">
             </div>
         </div>
