@@ -165,6 +165,7 @@
                         </a>
                     </li>
                 @endcan
+                <br><br><br><br><br><br>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
