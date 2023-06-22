@@ -56,18 +56,16 @@
             <p class="fw-medium text-uppercase text-primary mb-2">{{ Str::ucfirst($menu->kategory) }}</p>
             <h1 class="display-5 mb-5" style="font-size: 2.5rem;">{{ $menu->title }}</h1>
         </div>
-        <div class="row gy-5 gx-4">
-
-            @if (request()->is('survei/survei-visi*'))
-                <iframe src="{{ $menu->content }}?embedded=true" width="100%" height="1080" frameborder="0"
-                    marginheight="0" marginwidth="0">Memuat…</iframe>
-            @else
-                <p class="mt-4 ms-4 me-4 mb-1" style="font-size: 0.85rem;">{!! $menu->content !!}</p>
-                @if (request()->is('akademik/kalender-akademik'))
-                    <div class="text-center">
-                        <embed src="{{ asset("storage/$menu->image") }}" type="application/pdf" width="100%"
-                            height="1200px">
-                    </div>
+        <div class="row gt-5 gx-4">
+            <p class="mt-4 ms-4 me-4 mb-1" style="font-size: 0.85rem;">{!! $menu->content !!}</p>
+            @if (request()->is('akademik/kalender-akademik'))
+                <div class="text-center">
+                    <embed src="{{ asset("storage/$menu->image") }}" type="application/pdf" width="100%" height="1200px">
+                </div>
+            @elseif (request()->is('survei*'))
+                @if ($menu->image !== null)
+                    <iframe src="{{ $menu->image }}?embedded=true" width="100%" height="1080" frameborder="0"
+                        marginheight="0" marginwidth="0">Memuat…</iframe>
                 @endif
             @endif
         </div>

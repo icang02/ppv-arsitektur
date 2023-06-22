@@ -75,31 +75,36 @@
                                         </div>
                                     </div>
 
-                                    @if (!request()->is('dashboard/survei*'))
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                @if (request()->is('dashboard/akademik/kalender-akademik'))
-                                                    <label for="image">File</label>
-                                                    <p>Masukan File Kalender Akademik Di Sini</p>
-                                                    <input id="image" onchange="previewImage()" accept="file/*"
-                                                        type="file" class="form-control" id="image"
-                                                        placeholder="image" name="image">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            @if (request()->is('dashboard/akademik/kalender-akademik'))
+                                                <label for="image">File</label>
+                                                <p>Masukan File Kalender Akademik Di Sini</p>
+                                                <input id="image" onchange="previewImage()" accept="file/*"
+                                                    type="file" class="form-control" id="image" placeholder="image"
+                                                    name="image">
+                                            @elseif(request()->is('dashboard/survei*'))
+                                                <label for="image">Link Survei</label>
+                                                <p>Isikan link g-form anda di sini (ex :
+                                                    https://forms.gle/kMnKcm9H86nZA)</p>
+                                                <input type="url" name="image" id="image" class="form-control"
+                                                    value="{{ old('image', $menu->image) }}"
+                                                    placeholder="Shortcut link google form">
+                                            @else
+                                                <label for="image">Gambar</label>
+                                                <input id="image" onchange="previewImage()" accept="image/*"
+                                                    type="file" class="form-control" id="image" placeholder="image"
+                                                    name="image">
+                                                @if ($menu->image != null)
+                                                    <img src="{{ asset("storage/$menu->image") }}" alt="Gambar"
+                                                        class="img-preview img-thumbnail mt-2" width="150">
                                                 @else
-                                                    <label for="image">Gambar</label>
-                                                    <input id="image" onchange="previewImage()" accept="image/*"
-                                                        type="file" class="form-control" id="image"
-                                                        placeholder="image" name="image">
-                                                    @if ($menu->image != null)
-                                                        <img src="{{ asset("storage/$menu->image") }}" alt="Gambar"
-                                                            class="img-preview img-thumbnail mt-2" width="150">
-                                                    @else
-                                                        <img alt="Gambar" class="img-preview img-thumbnail mt-2"
-                                                            width="150" style="display: none;">
-                                                    @endif
+                                                    <img alt="Gambar" class="img-preview img-thumbnail mt-2"
+                                                        width="150" style="display: none;">
                                                 @endif
-                                            </div>
+                                            @endif
                                         </div>
-                                    @endif
+                                    </div>
                                 </div>
 
                                 @push('script')
@@ -125,17 +130,10 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div>
-                                            @if (request()->is('dashboard/survei*'))
-                                                <label for="editor">Link Survei</label>
-                                                <p>Isikan link g-form anda di sini (ex :
-                                                    https://forms.gle/kMnKcm9H86nZA)</p>
-                                                <input type="url" name="content" class="form-control"
-                                                    value="{{ old('content', $menu->content) }}"
-                                                    placeholder="Shortcut link google form">
-                                            @else
-                                                <label for="editor">Isi</label>
-                                                <textarea id="editor" name="content">{{ old('content', $menu->content) }}</textarea>
-                                            @endif
+
+                                            <label for="editor">Isi</label>
+                                            <textarea id="editor" name="content">{{ old('content', $menu->content) }}</textarea>
+
                                             @error('content')
                                                 <h6 class="text-danger">{{ $message }}</h6>
                                             @enderror

@@ -24,7 +24,8 @@ class VisimisiController extends Controller
         $image = $data->image;
 
         if ($request->file('image')) {
-            Storage::delete($data->image);
+            if($data->image!==null) {
+            Storage::delete($data->image);}
             $image = $request->file('image')->store('img-sliders');
         }
 

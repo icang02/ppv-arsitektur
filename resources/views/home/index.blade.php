@@ -8,7 +8,7 @@
 
     <!-- Features Start -->
     <div style="margin: 6rem 0 6rem 0 !important;">
-        @include('home.components.features', ['kaprodi' => $direktur], ['visimisi' => $visimisi])
+        @include('home.components.kaprodi', ['visimisi' => $visimisi])
     </div>
     <!-- Features End -->
 

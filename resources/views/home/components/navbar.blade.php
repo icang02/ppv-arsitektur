@@ -143,6 +143,8 @@
 
                 </div>
             </div>
+            <a href="{{ url('/download') }}"
+                class="nav-item nav-link {{ request()->is('download*') ? 'active' : '' }}">Download</a>
             <div class="g-translate pt-2">
                 <div id="google_translate_element"></div>
             </div>

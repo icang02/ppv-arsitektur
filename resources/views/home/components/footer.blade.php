@@ -3,18 +3,20 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 mb-3">
-                <div class="mb-3">
+                <div class="mb-3" style="margin-top: -20px">
                     <center>
                         <img src="{{ asset('home-assets/img/logo-uho.png') }}" width="150" class="mx-auto"
                             alt="Universitas Haluoleo">
                     </center>
                 </div>
-                <h5 class="text-white text-center" style="font-size: 1rem;">Prodi D3 TEKNIK ARSITEKTUR <br>FAKULTAS
-                    TEKNIK</h5>
+                <h5 class="text-white text-center" style="font-size: 1rem;">PROGRAM STUDI <br>D3 TEKNIK ARSITEKTUR
+                    <br>FAKULTAS
+                    TEKNIK
+                </h5>
             </div>
 
             <div class="col-lg-3 col-md-6 mb-3">
-                <h5 class="text-white mb-4" style="font-size: 1rem;">TENTANG SITUS</h5>
+                <h5 class="text-white mb-4" style="font-size: 1rem;">LINK TERKAIT</h5>
                 <a class="btn btn-link" href="{{ url('https://uho.ac.id/') }}" style="font-size: 0.85rem;">UHO</a>
                 <a class="btn btn-link" href="{{ url('http://eng.uho.ac.id/') }}" style="font-size: 0.85rem;">Fakultas
                     Teknik</a>
@@ -28,9 +30,10 @@
 
             <div class="col-lg-3 col-md-6 mb-3">
                 <h5 class="text-white mb-4" style="font-size: 1rem;">HUBUNGI KAMI</h5>
-                <p class="mb-2" style="font-size: 0.85rem;"><i class="fa fa-map-marker-alt me-3"></i>Prodi Arsitektur
+                <p class="mb-2" style="font-size: 0.85rem;"><i class="fa fa-map-marker-alt me-3"></i>Program Studi D3
+                    Teknik Arsitektur
                     <br>
-                    Program Pendidikan Vokasi <br>
+                    Fakultas Teknik <br>
                     Kampus Hijau Bumi Tridharma, Anduonohu
                     Kendari - Indonesia 93232
                 </p>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vokasi | Login</title>
+    <title>D3 Teknik Aristektur UHO | Login</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -20,12 +20,12 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>Vokasi</b>Admin</a>
+            <a href="../../index2.html"><b>D3 Teknik </b>Arsitektur</a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Masukan username nda password dengan benar</p>
+                <p class="login-box-msg">Masukan username dan password dengan benar</p>
 
                 <form action="{{ url('login') }}" method="post">
                     {{ csrf_field() }}
@@ -45,15 +45,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
+                    <div class="row justify-content-center">
                         <!-- /.col -->
                         <div class="col-4">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>

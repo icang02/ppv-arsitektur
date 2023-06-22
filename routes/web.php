@@ -120,7 +120,15 @@ Route::get('/dashboard/penelitian/create', [PenelitianController::class, 'create
 Route::post('/dashboard/penelitian/store', [PenelitianController::class, 'store'])->middleware('auth');
 Route::get('/dashboard/penelitian/{penelitian}', [PenelitianController::class, 'edit'])->middleware('auth');
 Route::put('/dashboard/penelitian/update/{penelitian}', [PenelitianController::class, 'update'])->middleware('auth');
-Route::delete('/dashboard/penelitian/destroy/{penelitian}', [PenelitianController::class, 'destroy'])->middleware('auth');
+Route::delete('/dashboard/penelitian/destroy/{id}', [PenelitianController::class, 'destroy'])->middleware('auth');
+
+//dashboard download
+Route::get('/dashboard/download', [PenelitianController::class, 'indexDownload'])->middleware('auth');
+Route::get('/dashboard/download/create', [PenelitianController::class, 'createDownload'])->middleware('auth');
+Route::post('/dashboard/download/store', [PenelitianController::class, 'storeDownload'])->middleware('auth');
+Route::get('/dashboard/download/{download}', [PenelitianController::class, 'editDownload'])->middleware('auth');
+Route::put('/dashboard/download/update/{download}', [PenelitianController::class, 'updateDownload'])->middleware('auth');
+Route::delete('/dashboard/download/destroy/{id}', [PenelitianController::class, 'destroy'])->middleware('auth');
 
 //dashboard  pengumuman
 Route::get('/dashboard/pengumuman', [NewsController::class, 'pengumuman'])->middleware('auth');
@@ -215,6 +223,7 @@ Route::get('/civitas', [DosenController::class, 'indexHome']);
 // menu penelitian
 Route::get('/penelitian', [PenelitianController::class, 'index']);
 Route::get('/pengabdian', [PenelitianController::class, 'index']);
+Route::get('/download', [PenelitianController::class, 'index']);
 
 // menu biodata alumni
 Route::get('/biodata-alumni', [AlumniController::class, 'alumniHome']);

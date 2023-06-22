@@ -70,24 +70,41 @@
                 <div class="table-responsive" style="font-size: 0.85rem;">
                     <table class="table table-bordered">
                         <thead>
-                            <tr class="fw-bold">
-                                <th scope="col">No.</th>
-                                <th scope="col">Judul Penelitian</th>
-                                <th scope="col">Nama Dosen</th>
-                                <th scope="col">Tahun</th>
-                                <th scope="col">Link</th>
-                            </tr>
+                            @if (request()->is('download*'))
+                                <tr class="fw-bold">
+                                    <th scope="col" style="width: 50px">No.</th>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Link</th>
+                                </tr>
+                            @else
+                                <tr class="fw-bold">
+                                    <th scope="col" style="width: 50px">No.</th>
+                                    <th scope="col">Judul Penelitian</th>
+                                    <th scope="col">Nama Dosen</th>
+                                    <th scope="col">Tahun</th>
+                                    <th scope="col">Link</th>
+                                </tr>
+                            @endif
+
                         </thead>
                         <tbody>
                             @forelse ($data as $item)
                                 <tr>
-                                    <th scope="row">{{ $loop->iteration }}</th>
-                                    <td>{{ $item->judul }}</td>
-                                    <td>{{ $item->nama_dosen }}</td>
-                                    <td>{{ $item->tahun }}</td>
-                                    <td>
-                                        <a href="{{ $item->link }}">Unduh</a>
-                                    </td>
+                                    @if (request()->is('download*'))
+                                        <th scope="row">{{ $loop->iteration }}</th>
+                                        <td>{{ $item->judul }}</td>
+                                        <td>
+                                            <a href="{{ asset("storage/$item->link") }}" target="_blank">Unduh</a>
+                                        </td>
+                                    @else
+                                        <th scope="row">{{ $loop->iteration }}</th>
+                                        <td>{{ $item->judul }}</td>
+                                        <td>{{ $item->nama_dosen }}</td>
+                                        <td>{{ $item->tahun }}</td>
+                                        <td>
+                                            <a href="{{ $item->link }}" target="_blank">Unduh</a>
+                                        </td>
+                                    @endif
                                 </tr>
                             @empty
                                 <tr class="text-center">

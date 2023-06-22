@@ -65,6 +65,21 @@
                                                             @method('put')
                                                             <div class="container justify-content-center">
                                                                 <div class="row">
+                                                                    @if ($vm->id == 4)
+                                                                        <div class="col-12">
+                                                                            <div class="alert alert-warning  fade show"
+                                                                                role="alert">
+                                                                                <b>PERHATIAN</b>
+                                                                                <br>Untuk memasukkan link video profil (link
+                                                                                Youtube), cukup masukkan id videonya saja.
+                                                                                <br><b>Contohnya :</b>
+                                                                                <br>Link :
+                                                                                https://youtu.be/55aFUefzsH4
+                                                                                <br><b>Inputkan :</b>
+                                                                                55aFUefzsH4
+                                                                            </div>
+                                                                        </div>
+                                                                    @endif
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
                                                                             <label for="title">Judul</label>
@@ -75,48 +90,58 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group">
-                                                                            <label for="image">Gambar</label>
-                                                                            <img @if (isset($vm)) @if ($vm->image != null) src="{{ asset("storage/$vm->image") }}" @else src="" @endif
-                                                                                @endif
-                                                                            alt="Image"
-                                                                            class="img-preview img-thumbnail mb-3"
-                                                                            @if (!isset($vm)) style="display: none" @else style="display: block" @endif
-                                                                            width="300">
-                                                                            <input type="file" onchange="previewImage()"
-                                                                                class="form-control @error('image') is-invalid @enderror"
-                                                                                value="{{ $vm->image }}" id="image"
-                                                                                name="image">
+                                                                    @if ($vm->id == 3)
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label for="image">Gambar</label>
+                                                                                <img @if (isset($vm)) @if ($vm->image != null) src="{{ asset("storage/$vm->image") }}" @else src="" @endif
+                                                                                    @endif
+                                                                                alt="Image"
+                                                                                class="img-preview img-thumbnail mb-3"
+                                                                                @if (!isset($vm)) style="display: none" @else style="display: block" @endif
+                                                                                width="300">
+                                                                                <input type="file"
+                                                                                    onchange="previewImage()"
+                                                                                    class="form-control @error('image') is-invalid @enderror"
+                                                                                    value="{{ $vm->image }}"
+                                                                                    id="image" name="image">
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
 
-                                                                    @push('script')
-                                                                        <script>
-                                                                            function previewImage() {
-                                                                                const image = document.querySelector('#image');
-                                                                                const imgPreview = document.querySelector('.img-preview');
+                                                                        @push('script')
+                                                                            <script>
+                                                                                function previewImage() {
+                                                                                    const image = document.querySelector('#image');
+                                                                                    const imgPreview = document.querySelector('.img-preview');
 
-                                                                                imgPreview.style.display = 'block';
+                                                                                    imgPreview.style.display = 'block';
 
-                                                                                const oFReader = new FileReader();
-                                                                                oFReader.readAsDataURL(image.files[0]);
+                                                                                    const oFReader = new FileReader();
+                                                                                    oFReader.readAsDataURL(image.files[0]);
 
-                                                                                oFReader.onload = function(oFREvent) {
-                                                                                    imgPreview.src = oFREvent.target.result;
+                                                                                    oFReader.onload = function(oFREvent) {
+                                                                                        imgPreview.src = oFREvent.target.result;
+                                                                                    }
                                                                                 }
-                                                                            }
-                                                                        </script>
-                                                                    @endpush
-
-                                                                    <div class="row">
-                                                                        <div class="col-12">
+                                                                            </script>
+                                                                        @endpush
+                                                                    @endif
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        @if ($vm->id == 4)
+                                                                            <div class="col-12">
+                                                                                <label for="content">Link</label>
+                                                                                <input type="text" name="content"
+                                                                                    class="form-control" id="content"
+                                                                                    value="{{ $vm->content }}">
+                                                                            </div>
+                                                                        @else
                                                                             <label
                                                                                 for="summernote{{ $vm->id }}">Isi</label>
                                                                             <textarea class="@error('content') is-invalid @enderror" name="content" id="editor{{ $vm->id }}" required>{{ $vm->content }}</textarea>
-                                                                        </div>
+                                                                        @endif
                                                                     </div>
-
                                                                 </div>
                                                             </div>
                                                     </div>

@@ -56,54 +56,6 @@
                                                         {{ $dt->title }}
                                                     </td>
                                                 </tr>
-
-                                                {{-- modal update data --}}
-                                                <div class="modal fade" id="modalUpdate{{ $dt->id }}">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h4 class="modal-title">Update dt</h4>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body justify-content-end">
-
-                                                                <form action="{{ url("/dashboard/prfs/update/$dt->id") }}"
-                                                                    method="post" enctype="multipart/form-data">
-                                                                    @csrf
-                                                                    @method('put')
-                                                                    <div class="container justify-content-center">
-                                                                        <div class="row">
-                                                                            <div class="col-12">
-                                                                                <div class="form-group">
-                                                                                    <div class="custom-file">
-                                                                                        <input type="file"
-                                                                                            class="custom-file-input"
-                                                                                            id="image" name="image">
-                                                                                        <label class="custom-file-label"
-                                                                                            for="image">Choose
-                                                                                            file</label>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                            </div>
-                                                            <div class="modal-footer justify-content-end">
-                                                                <button type="button" class="btn btn-default"
-                                                                    data-dismiss="modal">Close</button>
-                                                                <button type="submit"
-                                                                    class="btn btn-primary">Upload</button>
-                                                            </div>
-                                                            </form>
-                                                        </div>
-                                                        <!-- /.modal-content -->
-                                                    </div>
-                                                    <!-- /.modal-dialog -->
-                                                </div>
-                                                {{-- end modal update data --}}
                                             @endforeach
                                         </tbody>
                                     </table>

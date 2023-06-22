@@ -91,14 +91,19 @@ class MenuController extends Controller
             $slug = 'survei';
         }
 
-        if ($menu->image != null) {
-            Storage::delete($menu->image);
+        if (!(request()->is('dashboard/survei*'))){
+            if ($menu->image != null) {
+                Storage::delete($menu->image);
+            }
+            if ($request->has('image')) {
+                $image = $request->file('image')->store("menu-$slug");
+            }else {
+                $image = $menu->image;
+            }
+        }else{
+            $image = $request->image; 
         }
-        if ($request->has('image')) {
-            $image = $request->file('image')->store("menu-$slug");
-        }else {
-            $image = $menu->image;
-        }
+       
 
         $content = str_replace('<table>', '<table class="table table-bordered"', $request->content);
         $content = str_replace('<figure class="table">', '<figure class="table-responsive">', $content);
