@@ -145,6 +145,15 @@ class FasilitasController extends Controller
         dd($request->all());
     }
 
+    public function listFasilitas(){
+        $data = Fasilitas::orderBy('is_lab','desc')->get();
+        $title = "Fasilitas";
+
+        return view('home.list-fasilitas', [
+            'fasilitas' => $data,
+            'title' => $title
+        ]);
+    }
     public function detailFasilitas($id)
     {
         $data = Fasilitas::findOrFail($id);

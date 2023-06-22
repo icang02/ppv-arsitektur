@@ -10,7 +10,7 @@
     }
 
     .g-translate {
-        width: 20%;
+        width: 15%;
     }
 
     @media only screen and (max-width: 576px) {
@@ -47,17 +47,24 @@
     });
 </script>
 
+<div
+    class="nav-desktop bg-white w-100 px-5 py-1 border-bottom border-2 d-flex align-items-center justify-content-between">
+    <a href="{{ url('/') }}">
+        <img src="{{ asset('home-assets/img/newlogo.png') }}" alt="Logo" width="250">
+    </a>
+    {{-- Translate element --}}
+    <div class="g-translate mt-3">
+        <div id="google_translate_element"></div>
+    </div>
+</div>
+
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-1">
-    <button type="button" class="navbar-toggler my-3 mx-auto" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+    <button type="button" class="navbar-toggler my-3 mx-auto" data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav mx-start ms-4 p-1 p-lg-0">
-            <a href="{{ url('/') }}">
-                <img src="{{ asset('home-assets/img/logoarsi.png') }}" alt="Logo" width="250">
-            </a>
-        </div>
         <div class="navbar-nav mx-auto p-1 p-lg-0">
             <a href="{{ url('/') }}" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
 
@@ -83,16 +90,8 @@
                 </div>
             </div>
 
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle {{ request()->is('sarana_umum*') ? 'active' : '' }}"
-                    data-bs-toggle="dropdown">Sarana Umum</a>
-                <div class="dropdown-menu bg-light m-0">
-                    @foreach ($sarana as $srn)
-                        <a href="{{ url("/sarana_umum/$srn->id") }}"
-                            class="dropdown-item {{ request()->is("sarana_umum/$srn->id") ? 'active' : '' }}">{{ $srn->nama }}</a>
-                    @endforeach
-                </div>
-            </div>
+            <a href="{{ url('/sarana_umum') }}"
+                class="nav-item nav-link {{ request()->is('sarana_umum') ? 'active' : '' }}">Sarana Umum</a>
 
             <a href="{{ url('/civitas') }}"
                 class="nav-item nav-link {{ request()->is('civitas*') ? 'active' : '' }}">Civitas</a>
@@ -145,9 +144,6 @@
             </div>
             <a href="{{ url('/download') }}"
                 class="nav-item nav-link {{ request()->is('download*') ? 'active' : '' }}">Download</a>
-            <div class="g-translate pt-2">
-                <div id="google_translate_element"></div>
-            </div>
         </div>
         {{-- <div class="navbar-nav mx-end">
 

@@ -198,6 +198,7 @@ Route::get('/aktivitas/{kategory}', [NewsController::class, 'indexAktivitas'])->
 Route::get('/aktivitas/{kategory}/{slug}', [NewsController::class, 'aktivitasDetail']);
 
 //sarana umum
+Route::get('/sarana_umum', [FasilitasController::class, 'listFasilitas']);
 Route::get('/sarana_umum/{id}', [FasilitasController::class, 'detailFasilitas']);
 
 //artikel
