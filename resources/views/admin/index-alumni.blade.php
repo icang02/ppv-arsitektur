@@ -19,9 +19,19 @@
                                         <th style="width: 25px">No</th>
                                         <th style="width: 100px">Aksi</th>
                                         <th>Nama</th>
+                                        <th class="d-none">Jenis Kelamin</th>
+                                        <th class="d-none">Tempat Lahir</th>
+                                        <th class="d-none">Tanggal Lahir</th>
+                                        <th class="d-none">Alamat</th>
+                                        <th class="d-none">Email</th>
+                                        <th style="width: 200px">Nomor Hp</th>
                                         <th style="width: 200px">Tahun Masuk</th>
                                         <th style="width: 200px">Bulan dan Tahun Lulus</th>
-                                        <th style="width: 200px">Nomor Hp</th>
+                                        <th class="d-none">Apakah Saat Ini Sudah Bekerja?</th>
+                                        <th class="d-none">Status Pekerjaan</th>
+                                        <th class="d-none">Apa Pekerjaan Sesuai dengan Latar Belakang Pendidikan?</th>
+                                        <th class="d-none">Lama Menunggu untuk Pekerjaan Pertama Sejak Kelulusan</th>
+                                        <th class="d-none">Saran dan Masukan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,9 +58,19 @@
                                                 </form>
                                             </td>
                                             <td>{{ $alu->nama }}</td>
+                                            <th class="d-none">{{ $alu->jenis_kelamin }}</th>
+                                            <th class="d-none">{{ $alu->tempat_lahir }}</th>
+                                            <th class="d-none">{{ $alu->tanggal_lahir }}</th>
+                                            <th class="d-none">{{ $alu->alamat }}</th>
+                                            <th class="d-none">{{ $alu->email }}</th>
+                                            <td>{{ $alu->hp }}</td>
                                             <td>{{ $alu->tanggal_masuk }}</td>
                                             <td>{{ $alu->bulan_tahun_lulus }}</td>
-                                            <td>{{ $alu->hp }}</td>
+                                            <th class="d-none">{{ $alu->status_kerja }}</th>
+                                            <th class="d-none">{{ $alu->is_pns }}</th>
+                                            <th class="d-none">{{ $alu->kesesuaian_pekerjaan }}</th>
+                                            <th class="d-none">{{ $alu->lama_menganggur }}</th>
+                                            <th class="d-none">{{ $alu->saran }}</th>
                                         </tr>
                                     @endforeach
                                 </tbody>
