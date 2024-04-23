@@ -231,7 +231,7 @@ class NewsController extends Controller
 
         $content = str_replace('<table>', '<table class="table table-bordered"', $request->content);
         $content = str_replace('<figure class="table">', '<figure class="table-responsive">', $content);
-        $content = str_replace('<img', '<img id="gambar-berita"', $request->content);
+        $content = str_replace('<img', '<img id="gambar-berita" class="img-editor border border-dark"', $request->content);
         $content = str_replace('<figure class="image">', '<figure class="image text-center">', $content);
 
         News::Create([
@@ -270,12 +270,14 @@ class NewsController extends Controller
 
         $content = str_replace('<table>', '<table class="table table-bordered"', $request->content);
         $content = str_replace('<figure class="table">', '<figure class="table-responsive">', $content);
-        $content = str_replace('<img', '<img id="gambar-berita"', $request->content);
+        $content = str_replace('<img', '<img id="gambar-berita" class="img-editor border border-dark"', $request->content);
         $content = str_replace('<figure class="image">', '<figure class="image text-center">', $content);
 
+        $splitSlug = explode('-', $data->slug);
+        $idSlug = $splitSlug[0];
         $data->update([
             'title' => ucfirst($request->title),
-            'slug' => uniqid() . '-' . str()->slug($request->title),
+            'slug' => $idSlug . '-' . str()->slug($request->title),
             'kategory' => $request->kategory,
             'date' => $request->date,
             'image' => $image,

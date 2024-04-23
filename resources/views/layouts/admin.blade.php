@@ -179,9 +179,11 @@
         ClassicEditor
             .create(document.querySelector('#editor'), {
                 // Konfigurasi CKEditor
+                // setInterval(() => {
                 ckfinder: {
                     uploadUrl: "{{ route('image.upload') . '?_token=' . csrf_token() }}"
                 }
+                // }, 3000);
             })
             .catch(error => {
                 console.error(error);

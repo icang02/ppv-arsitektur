@@ -20,7 +20,7 @@
 
     <!-- About Start -->
     <div style="margin: 0rem 0 6rem 0 !important;">
-        @include('home.components.visi-misi', ['visimisi' => $visimisi])
+        {{-- @include('home.components.visi-misi', ['visimisi' => $visimisi]) --}}
     </div>
     <!-- About End -->
 

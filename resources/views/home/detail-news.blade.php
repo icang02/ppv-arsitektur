@@ -87,10 +87,11 @@
             <div class="p-lg-5 px-4 py-5 bg-white shadow-lg" id="berita">
                 <div>
                     @if ($news->image)
-                        <img src="{{ asset("storage/$news->image") }}" width="" alt="Image" id="gambar-berita">
+                        <img src="{{ asset("storage/$news->image") }}" class="img-editor border border-dark" alt="Image"
+                            id="gambar-berita">
                     @else
                         <img src="https://asset.kompas.com/crops/25hhF38dli3VSfKY5g8lIbzRDxA=/0x0:1000x667/750x500/data/photo/2022/05/01/626e236fbfeb9.png"
-                            alt="Image" id="gambar-berita">
+                            alt="Default Image" id="gambar-berita-default">
                     @endif
                 </div>
                 <h5 class="mt-3">{{ $news->title }}</h5>
@@ -135,4 +136,24 @@
             </div>
         </div>
     </div>
+
+    <script>
+        window.onload = function() {
+            var images = document.querySelectorAll('.img-editor'); // Ambil semua elemen dengan kelas 'img-editor'
+
+            images.forEach(function(image) {
+                var ratio = image.naturalWidth / image.naturalHeight; // Hitung rasio aspek
+
+                if (ratio > 1) { // Jika gambar landscape
+                    image.style.width = "80%";
+                    image.style.margin = "0 auto";
+                    image.style.display = "block";
+                } else { // Jika gambar portrait
+                    image.style.width = "60%";
+                    image.style.margin = "0 auto";
+                    image.style.display = "block";
+                }
+            });
+        };
+    </script>
 @endsection
